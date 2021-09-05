@@ -1,2 +1,2 @@
 # co2offset.io
-Carbon Offsets  API for your business
+Carbon Dioxide Offset API
