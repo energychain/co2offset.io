@@ -133,6 +133,42 @@
         }
       }
     },
+    "/co2/comparable": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Compare grams of CO2 with different use cases.",
+        "operationId": "co2compare",
+        "description": "Available results include:<ul><li>gallons of gasoline consumed</li><li>gallons of diesel consumed</li><li>passenger vehicles driven for one year</li><li>tanker trucks worth of gasoline</li><li>incandescent lamps switch to LEDs</li><li>homes powered for a year</li><li>urban tree seedlings grown for 10 years</li><li>railcars of coal burned</li><li>coal-fired power plants in one year</li></ul>",
+        "parameters": [
+          {
+            "name": "co2",
+            "in": "query",
+            "description": "CO2 equivalence gramms to compare with",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "12345"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/comperators"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/co2/findByOwner": {
       "get": {
         "tags": [
@@ -176,7 +212,7 @@
         ],
         "summary": "Retrieve CO2 offset certrificate data and validates (Proof of Identity, Consensus check).",
         "operationId": "co2certificate",
-        "description": "DSGVO complient retrieval of dataset associated to this certificate. <ul><li>Compensation Path</li><li>Digital Signature(s)</li><li>Public Meta Information</li><li>CO2 Offset source (Project)</li><li>Transaction Information</li></ul> Use this endpoint for onthe-fly online rendering of certific data.\n",
+        "description": "EU-GDPR complient retrieval of dataset associated to this certificate. <ul><li>Compensation Path</li><li>Digital Signature(s)</li><li>Public Meta Information</li><li>CO2 Offset source (Project)</li><li>Transaction Information</li></ul> Use this endpoint for onthe-fly online rendering of certific data.\n",
         "parameters": [
           {
             "name": "compensation",
@@ -262,6 +298,31 @@
         "description": "URL for interactive checkout and payment of CO2 offset for a co2 certificate.",
         "type": "string",
         "example": "https://checkout.stripe.com/pay/cs_live_a1kuMslQRjSlHnYF1BuKQSXbEl6BfduHOGG30dgavjRDy1fjUnC4UllAUd#fidkdWxOYHwnPyd1blppbHNgWndSa21yQmNOa3JoN2RIXHxUMDVWZ193aScpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+      },
+      "comperators": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Nature/Kind to compare with",
+            "type": "string",
+            "example": "propane"
+          },
+          "value": {
+            "description": "Quantity",
+            "type": "number",
+            "example": 15.37
+          },
+          "units": {
+            "description": "units of this nature/kind",
+            "type": "string",
+            "example": "cylinder"
+          },
+          "description": {
+            "description": "Quantity calculation description",
+            "type": "string",
+            "example": "per cylinder"
+          }
+        }
       },
       "co2price": {
         "type": "object",
