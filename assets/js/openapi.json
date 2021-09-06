@@ -133,6 +133,39 @@
         }
       }
     },
+    "/co2/certificate": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Retrieve CO2 offset certrificate data and validates (Proof of Identity, Consensus check).",
+        "operationId": "co2certificate",
+        "description": "DSGVO complient retrieval of dataset associated to this certificate. <ul><li>Compensation Path</li><li>Digital Signature(s)</li><li>Public Meta Information</li><li>CO2 Offset source (Project)</li><li>Transaction Information</li></ul> Use this endpoint for onthe-fly online rendering of certific data.\n",
+        "parameters": [
+          {
+            "name": "compensation",
+            "in": "query",
+            "description": "Digital Identity of a certificate to validate.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x971032fdCD88E71A880b539DEc415D1e48441DAF"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/co2certificate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/co2/sources": {
       "get": {
         "tags": [
@@ -151,6 +184,44 @@
   },
   "components": {
     "schemas": {
+      "co2certificate": {
+        "type": "object",
+        "properties": {
+          "compensation": {
+            "description": "Digital Identity of CO2 compensation certificate.",
+            "type": "string",
+            "example": "0x971032fdCD88E71A880b539DEc415D1e48441DAF"
+          },
+          "co2": {
+            "description": "Gram CO2eq covered by this certificate",
+            "type": "integer",
+            "example": "39715"
+          },
+          "co2requested": {
+            "description": "Requested CO2 to offset. Might be less than actual co2 covered by certficate due to minimum amounts.",
+            "type": "integer",
+            "example": "39715"
+          },
+          "signature": {
+            "description": "Digital Signature as generated during transfer of ownership.",
+            "type": "string"
+          },
+          "owner": {
+            "description": "Digital Identity of owner of this certificate",
+            "type": "string",
+            "example": "0x2B5672fEfF4F923104cdBDc59afAAb864E5C2179"
+          },
+          "tree": {
+            "description": "Digital Identity of actual tree in case type of compensation is planting a tree.",
+            "type": "string",
+            "example": "0x15b6F57D958A86afA4B3EB8C74949c3171A43B63"
+          },
+          "meta": {
+            "description": "Meta Information attached during transfer of ownership. Covers fields like original activity etc.. ",
+            "type": "object"
+          }
+        }
+      },
       "co2compensate": {
         "description": "URL for interactive checkout and payment of CO2 offset for a co2 certificate.",
         "type": "string",
