@@ -72,7 +72,7 @@
             <div class="container text-start">
                 <div class="block-heading">
                     <h2>&lt;/jquery&gt;</h2>
-                    <p>See how to use this service with simple JQuery.&nbsp; <br>Test it&nbsp;<a href="https://jsfiddle.net/stromdao/5fvzqj1o/3/">on JSFiddle</a>.</p>
+                    <p>See how to use this service with simple JQuery.&nbsp; <br>Test it&nbsp;<a href="https://jsfiddle.net/stromdao/5fvzqj1o/11/">on JSFiddle.</a></p>
                 </div><code style="color: var(--bs-blue);">$('document').ready(function() {<br>&nbsp;$('#getQuote').click(function() {<br>&nbsp;&nbsp;$.getJSON("https://api.corrently.io/v2.0/co2/price?co2="+$('#co2eq').val(),function(data) {<br>&nbsp;&nbsp;&nbsp;$('#co2req').html(data.reqCO2);<br>&nbsp;&nbsp;&nbsp;$('#co2get').html(data.getCO2);<br>&nbsp;&nbsp;&nbsp;$('#price').html(data.priceEUR);<br>&nbsp;&nbsp;&nbsp;$('#offsetnow').click(function() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.getJSON("https://api.corrently.io/v2.0/co2/compensate?co2="+$('#co2eq').val(),function(data) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;location.href = data ;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;})<br>&nbsp;})<br>});</code>
             </div>
         </section>
