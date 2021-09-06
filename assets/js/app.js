@@ -50,4 +50,23 @@ $('document').ready(function() {
     retrieveQuote();
   }
 
+  $('.qty').change(function(e) {
+    let co2 = $(e.currentTarget.parentElement.parentElement.children[3]).html() * e.target.value;
+    $(e.currentTarget.parentElement.parentElement.children[4]).html(co2);
+    if(co2 > 0) {
+      $(e.currentTarget.parentElement.parentElement.children[5].children[0]).removeAttr('disabled');
+    } else {
+      $(e.currentTarget.parentElement.parentElement.children[5].children[0]).attr('disabled','disabled');
+      $(e.currentTarget.parentElement.parentElement.children[5].children[0]).html('0.00 €');
+    }
+    $.getJSON("https://api.corrently.io/v2.0/co2/price?co2="+co2,function(data) {
+      $(e.currentTarget.parentElement.parentElement.children[5].children[0]).html(data.priceEUR + " €");
+      $(e.currentTarget.parentElement.parentElement.children[5].children[0]).attr('data',co2);
+    });
+  });
+  $('.compbutton').click(function(e) {
+    $('#co2eq').val($(e.currentTarget).attr('data'));
+    retrieveQuote();
+  })
+
 });

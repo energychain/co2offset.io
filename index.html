@@ -130,11 +130,140 @@
         <section class="clean-block about-us">
             <div class="container">
                 <div class="block-heading">
+                    <h2 class="text-info">CO<sub>2</sub>eq Calculator</h2>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Quantity</th>
+                                    <th>Unit</th>
+                                    <th>Nature</th>
+                                    <th>CO<sub>2</sub>eq per Unit</th>
+                                    <th>Total CO<sub>2</sub>eq&nbsp;</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="number" class="form-control qty" value="0" name="qty" step="1" min="0"></td>
+                                    <td>Gallon</td>
+                                    <td>Gasoline</td>
+                                    <td>8820</td>
+                                    <td></td>
+                                    <td><button class="btn btn-primary btn-sm compbutton" type="button">0.00 €</button></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="number" class="form-control qty" value="0" name="qty" step="1" min="0"></td>
+                                    <td>Liter</td>
+                                    <td>Gasoline</td>
+                                    <td>2650</td>
+                                    <td></td>
+                                    <td><button class="btn btn-primary btn-sm compbutton" type="button">0.00 €</button></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="number" class="form-control qty" value="0" name="qty" step="1" min="0"></td>
+                                    <td>kWh</td>
+                                    <td>Green-Electricity</td>
+                                    <td>52</td>
+                                    <td></td>
+                                    <td><button class="btn btn-primary btn-sm compbutton" type="button">0.00 €</button></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="number" class="form-control qty" value="0" name="qty" step="1" min="0"></td>
+                                    <td>kg</td>
+                                    <td>Beef</td>
+                                    <td>5100</td>
+                                    <td></td>
+                                    <td><button class="btn btn-primary btn-sm compbutton" type="button">0.00 €</button></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="number" class="form-control qty" value="0" name="qty" step="1" min="0"></td>
+                                    <td>kg</td>
+                                    <td>Coffee</td>
+                                    <td>2900</td>
+                                    <td></td>
+                                    <td><button class="btn btn-primary btn-sm compbutton" type="button">0.00 €</button></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="number" class="form-control qty" value="0" name="qty" step="1" min="0"></td>
+                                    <td>kg</td>
+                                    <td>Pork</td>
+                                    <td>1017</td>
+                                    <td></td>
+                                    <td><button class="btn btn-primary btn-sm compbutton" type="button">0.00 €</button></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="number" class="form-control qty" value="0" name="qty" step="1" min="0"></td>
+                                    <td>kg</td>
+                                    <td>Chicken</td>
+                                    <td>1432</td>
+                                    <td></td>
+                                    <td><button class="btn btn-primary btn-sm compbutton" type="button">0.00 €</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="clean-block about-us">
+            <div class="container">
+                <div class="block-heading">
                     <h2 class="text-info">REST API</h2>
                 </div>
                 <div id="swagger-ui"></div>
             </div>
-        </section>
+        </section><script type="application/ld+json">
+{
+  "@context":"https://schema.org/",
+  "@type":"Dataset",
+  "name":"CO2 Footprint",
+  "description":"CO2 Footprint for pre offset calculation",
+  "url":"https://co2offset.io/",
+  "keywords":[
+     "CO2 > FOOTPRINT",
+     "API > GREENHOUSE > FOOTPRINT"
+  ],
+  "license" : "https://creativecommons.org/publicdomain/zero/1.0/",
+  "isAccessibleForFree" : true,
+  "hasPart" : [
+    {
+      "@type": "Dataset",
+      "name": "CO2eq",
+      "description": "CO2eq in Gramm",
+      "license" : "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creator":{
+         "@type":"Organization",
+         "name": "Corrently Corp"
+      }
+    }
+  ],
+  "creator":{
+     "@type":"Organization",
+     "url": "https://stromdao.de/",
+     "name":"STROMDAO GmbH",
+     "contactPoint":{
+        "@type":"ContactPoint",
+        "contactType": "customer service",
+        "telephone":"+49-6226-9680090",
+        "email":"dev@stromdao.com"
+     }
+  },
+  "funder":{
+     "@type": "Organization",
+     "sameAs": "https://stromdao.de/",
+     "name": "STROMDAO GmbH"
+  },
+  "distribution":[
+     {
+        "@type":"DataDownload",
+        "encodingFormat":"JSON",
+        "contentUrl":"https://co2offset.io/co2eq.json"
+     }
+  ]
+}
+</script>
+
         <div class="modal fade" role="dialog" tabindex="-1" id="priceModal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
