@@ -65,6 +65,15 @@
         <div class="container"><a class="navbar-brand logo" href="https://co2offset.io/">CO<sub>2</sub>&nbsp;Offset API<br><span style="font-size: 10px;">part of the Corrently Ecosystem</span>&nbsp;<br></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div title="Price Lookup for full certified CO2 compensation">
                 <div class="input-group"><input class="form-control" type="number" id="co2eq" placeholder="(Gram CO2eq)" min="1" step="1" name="co2eq"><button class="btn btn-primary" id="getQuote" type="button" data-bs-toggle="modal" data-bs-target="#priceModal"><i class="fas fa-coins"></i></button></div>
+                <div class="row">
+                    <div class="col"><label class="col-form-label">Currency</label></div>
+                    <div class="col" style="padding-top: 6px;">
+                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1" name="currency" value="EUR" checked=""><label class="form-check-label" for="formCheck-1">EUR&nbsp;</label></div>
+                    </div>
+                    <div class="col" style="margin-top: 6px;">
+                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2" name="currency" value="USD"><label class="form-check-label" for="formCheck-1">USD&nbsp;</label></div>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -287,7 +296,7 @@
                                     </tr>
                                     <tr class="fw-bold">
                                         <td class="text">Your Price&nbsp;</td>
-                                        <td class="text-end"><span id="price">-</span>&nbsp;€</td>
+                                        <td class="text-end"><span id="price">-</span></td>
                                     </tr>
                                 </tbody>
                             </table>

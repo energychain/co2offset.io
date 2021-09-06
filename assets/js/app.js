@@ -18,7 +18,11 @@ $('document').ready(function() {
     $.getJSON("https://api.corrently.io/v2.0/co2/price?co2="+$('#co2eq').val(),function(data) {
       $('#co2req').html(data.reqCO2);
       $('#co2get').html(data.getCO2);
-      $('#price').html(data.priceEUR);
+      if($('input[name=currency]:checked').val() == 'USD') {
+        $('#price').html(data.priceUSD + " $");
+      } else {
+        $('#price').html(data.priceEUR + " €");
+      }
       $('#offsetnow').click(function() {
           $.getJSON("https://api.corrently.io/v2.0/co2/compensate?co2="+$('#co2eq').val(),function(data) {
             location.href = data ;
@@ -60,7 +64,11 @@ $('document').ready(function() {
       $(e.currentTarget.parentElement.parentElement.children[5].children[0]).html('0.00 €');
     }
     $.getJSON("https://api.corrently.io/v2.0/co2/price?co2="+co2,function(data) {
-      $(e.currentTarget.parentElement.parentElement.children[5].children[0]).html(data.priceEUR + " €");
+      if($('input[name=currency]:checked').val() == 'USD') {
+            $(e.currentTarget.parentElement.parentElement.children[5].children[0]).html(data.priceUSD + " $");
+      } else {
+            $(e.currentTarget.parentElement.parentElement.children[5].children[0]).html(data.priceEUR + " €");
+      }
       $(e.currentTarget.parentElement.parentElement.children[5].children[0]).attr('data',co2);
     });
   });
