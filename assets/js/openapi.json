@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "version": "3.1.15",
+    "version": "3.1.16",
     "title": "co2offset.io",
     "contact": {
       "email": "dev@stromdao.com",
@@ -126,6 +126,42 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/co2price"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/co2/findByOwner": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Retrieve list of certificates owned by provided Digital ID",
+        "operationId": "co2findByOwner",
+        "description": "Allows to get a list of all certificates associated to an owner. Part of the CO2 Offset Ledger API.\n",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "query",
+            "description": "Digital ID of an Owner.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x2B5672fEfF4F923104cdBDc59afAAb864E5C2179"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/co2certificate"
+                  }
                 }
               }
             }
