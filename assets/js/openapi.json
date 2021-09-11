@@ -91,9 +91,9 @@
         "tags": [
           "CO2-Offset"
         ],
-        "summary": "Checkout (buy) co2 compensation",
+        "summary": "Checkout (buy) co2 compensation. Will create an immutable basket that might be altered using the optional intermediate parameter.",
         "operationId": "co2checkout",
-        "description": "Basket for authenticated accounts (mass operations)\n",
+        "description": "Basket for authenticated accounts (mass operations). On first call you get an intermediate in the responds that you might use to update (eq. add more co2 offset). However you will always receive a new intermediate.\n",
         "parameters": [
           {
             "name": "liter",
@@ -121,6 +121,15 @@
               "type": "number"
             },
             "example": "30"
+          },
+          {
+            "name": "intermediate",
+            "required": false,
+            "in": "query",
+            "description": "Optional intermediate certificate to update",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
