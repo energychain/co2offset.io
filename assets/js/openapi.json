@@ -39,7 +39,7 @@
         ],
         "summary": "Direct checkout (buy) co2 compensation",
         "operationId": "co2compensate",
-        "description": "You might call the /price API endpoint prior to a checkout to get latest pricing information. This method returns a URL for direct checkout using Stripe. All CO2 offset prices are based on VCS Verified CO2 Emission Reduction In accordance with the requirements of ISO 14064-1. CO2 prices are actual market prices and may change every hour.\n",
+        "description": "At co2offset.io , compensations represent a purchase of carbon offsets or negative emissions by mass. Place compensation orders directly if you know the amount of carbon dioxide you would like to sequester. You might call the /price API endpoint prior to a checkout to get latest pricing information. This method returns a URL for direct checkout using Stripe. All CO2 offset prices are based on VCS Verified CO2 Emission Reduction In accordance with the requirements of ISO 14064-1. CO2 prices are actual market prices and may change every hour.\n",
         "parameters": [
           {
             "name": "liter",
