@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "version": "3.1.17",
+    "version": "3.1.18",
     "title": "co2offset.io",
     "contact": {
       "email": "dev@stromdao.com",
@@ -37,7 +37,7 @@
         "tags": [
           "CO2-Offset"
         ],
-        "summary": "Checkout (buy) co2 compensation",
+        "summary": "Direct checkout (buy) co2 compensation",
         "operationId": "co2compensate",
         "description": "You might call the /price API endpoint prior to a checkout to get latest pricing information. This method returns a URL for direct checkout using Stripe. All CO2 offset prices are based on VCS Verified CO2 Emission Reduction In accordance with the requirements of ISO 14064-1. CO2 prices are actual market prices and may change every hour.\n",
         "parameters": [
@@ -78,6 +78,60 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/co2compensate"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/co2/basket": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Checkout (buy) co2 compensation",
+        "operationId": "co2checkout",
+        "description": "Basket for authenticated accounts (mass operations)\n",
+        "parameters": [
+          {
+            "name": "liter",
+            "in": "query",
+            "description": "Liter of fuel to compensate.",
+            "schema": {
+              "type": "number"
+            },
+            "example": "30"
+          },
+          {
+            "name": "co2",
+            "in": "query",
+            "description": "CO2 equivalence in gram to compensate",
+            "schema": {
+              "type": "number"
+            },
+            "example": "12345"
+          },
+          {
+            "name": "kwh",
+            "in": "query",
+            "description": "Kilo Watt hours of electricity to co2 offset.",
+            "schema": {
+              "type": "number"
+            },
+            "example": "30"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/co2basket"
                   }
                 }
               }
@@ -344,9 +398,34 @@
         }
       },
       "co2compensate": {
-        "description": "URL for interactive checkout and payment of CO2 offset for a co2 certificate.",
+        "description": "Basket for interactive checkout and payment of CO2 offset for a co2 certificate.",
         "type": "string",
-        "example": "https://checkout.stripe.com/pay/cs_live_a1kuMslQRjSlHnYF1BuKQSXbEl6BfduHOGG30dgavjRDy1fjUnC4UllAUd#fidkdWxOYHwnPyd1blppbHNgWndSa21yQmNOa3JoN2RIXHxUMDVWZ193aScpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+        "example": "https://checkout.stripe.com/pay/cs_live_a1kuMslQRjSlHnYF1BuKQSXbEl6BfduHOGG30dgavjRDy1fjUnC4UllAUd#fidkdWxOYHwnPyd1blppbHNgWndSa21yQmNOa3JoN2RIXHxUMDVWZ193aScpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYH"
+      },
+      "co2basket": {
+        "description": "Basket for interactive checkout and payment of CO2 offset for a co2 certificate.",
+        "type": "object",
+        "properties": {
+          "checkout": {
+            "description": "URL for interactive checkout and payment of CO2 offset for a co2 certificate.",
+            "type": "string",
+            "example": "https://checkout.stripe.com/pay/cs_live_a1kuMslQRjSlHnYF1BuKQSXbEl6BfduHOGG30dgavjRDy1fjUnC4UllAUd#fidkdWxOYHwnPyd1blppbHNgWndSa21yQmNOa3JoN2RIXHxUMDVWZ193aScpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+          },
+          "credit": {
+            "description": "CO2 credit of your account (if authenticated)",
+            "type": "integer",
+            "example": "39715"
+          },
+          "debit": {
+            "description": "CO2 debit of your account (if authenticated)",
+            "type": "string"
+          },
+          "intermediate": {
+            "description": "Temporary Certificate",
+            "type": "string",
+            "example": "0x2B5672fEfF4F923104cdBDc59afAAb864E5C2179"
+          }
+        }
       },
       "comperators": {
         "type": "object",
