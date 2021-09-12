@@ -63,7 +63,7 @@
 <body>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white text-end shadow-lg clean-navbar">
         <div class="container"><a class="navbar-brand logo" href="https://co2offset.io/">CO<sub>2</sub>&nbsp;Offset API<br><span style="font-size: 10px;">part of the Corrently Ecosystem</span>&nbsp;<br></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="text-end entity" title="Calling Entity"><span class="badge bg-primary entity">-</span></div>
+            <div class="text-end" title="Calling Entity"><span class="badge bg-success entity">-</span></div>
         </div>
     </nav>
     <main class="page landing-page">
@@ -71,47 +71,56 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h3>Your <strong>API first </strong><br>Greenhouse Gas removal Service</h3>
+                        <h3>CO<sub>2</sub>&nbsp;compensation&nbsp;<span class="entity-strong"><strong>-</strong></span><br>Managed Greenhouse Gas Emission</h3>
                         <div class="getting-started-info">
-                            <p>VCS Verified CO2 Emission Reduction in accordance with the requirements of ISO 14064. Integrates&nbsp;<strong>everywhere</strong> with a snippet of code.</p>
-                        </div><a class="btn btn-primary" role="button" href="#swagger-ui">&lt;/openAPI&gt;</a>
+                            <p>In accordance with the visitors stats, network traffic and hosting your visits until ~<span class="neutralstrong">-</span>&nbsp;are climate neutral. Thanks for helping to keep a sustainable web experience.</p>
+                        </div><button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#extendTip">Extend with a little tip</button>
                     </div>
-                    <div class="col-md-6 text-end"><img class="img-thumbnail" src="/assets/img/Climate_Neutral_Now.png"></div>
+                    <div class="col-md-6 text-end"><img src="/assets/img/ghg_footprint.png"></div>
                 </div>
+                <p class="text-center text-muted">Latest Sponsor:&nbsp;<span class="sponsor">-</span></p>
             </div>
         </section>
     </main>
     <section class="clean-block features" style="background: #ffffff;">
-        <div class="modal fade" role="dialog" tabindex="-1" id="priceModal">
+        <div class="modal fade" role="dialog" tabindex="-1" id="extendTip">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">CO2 Compensation Price</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h4 class="modal-title">Extend carbon neutral visits</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr></tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>eq. Requested</td>
-                                        <td class="text-end"><span id="co2req">-</span>&nbsp;g</td>
-                                    </tr>
-                                    <tr>
-                                        <td>eq. Certified</td>
-                                        <td class="text-end"><span id="co2get">-</span>&nbsp;g</td>
-                                    </tr>
-                                    <tr class="fw-bold">
-                                        <td class="text">Your Price&nbsp;</td>
-                                        <td class="text-end"><span id="price">-</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <h5>Climate Tip&nbsp;<span class="entity">-</span></h5>
+                        <ul>
+                            <li>100% spend in climate positive projects</li>
+                            <li>CO<sub>2</sub>offset certificate assigned to site</li>
+                            <li>You might be shown as sponsor</li>
+                            <li>Full trackable impact</li>
+                        </ul>
+                        <div class="input-group"><span class="input-group-text currency">€</span><input class="form-control" type="number" id="amount" min="1" step="1" max="500" value="1" name="amount"><button class="btn btn-primary" id="checkout" type="button">Extend Now</button></div>
+                        <div class="row text-muted">
+                            <div class="col">
+                                <p>&nbsp;&nbsp;</p>
+                            </div>
+                            <div class="col"><label class="col-form-label" style="font-size: 12px;">Currency</label></div>
+                            <div class="col" style="padding-top: 6px;">
+                                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1" name="currency" value="EUR" checked=""><label class="form-check-label" for="formCheck-1" style="font-size: 12px;">EUR&nbsp;</label></div>
+                            </div>
+                            <div class="col" style="margin-top: 6px;">
+                                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2" name="currency" value="USD"><label class="form-check-label" for="formCheck-1" style="font-size: 12px;">USD&nbsp;</label></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><a class="btn btn-primary" role="button" id="offsetnow">Offset Now</a></div>
+                    <div class="modal-footer text-start" style="background: #d2d1d1;">
+                        <div class="row g-0 text-start" style="width: 100%;">
+                            <div class="col-8"><img src="/assets/img/ghg_footprint_32.png" style="float:left;margin-right:5px;">
+                                <p class="text-success">Your Impact:</p>
+                            </div>
+                            <div class="col text-end">
+                                <p class="text-end text-success">&nbsp;~<span id="visits">-</span>&nbsp;visits</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,12 +133,7 @@
     </footer>
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="/assets/js/vanilla-zoom.js"></script>
-    <script src="/assets/js/theme.js"></script>
     <script src="/assets/js/host.js"></script>
-    <script src="/assets/js/swagger-ui-bundle.js"></script>
-    <script src="/assets/js/swagger-ui-standalone-preset.js"></script>
 </body>
 
 </html>

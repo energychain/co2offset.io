@@ -13,67 +13,53 @@ $('document').ready(function() {
         }
     }
     return false;
-};
-  const retrieveQuote = function() {
-    $.getJSON("https://api.corrently.io/v2.0/co2/price?co2="+$('#co2eq').val(),function(data) {
-      $('#co2req').html(data.reqCO2);
-      $('#co2get').html(data.getCO2);
+  };
+
+  const updateCurrency = function() {
+      let visits = $('#amount').val() * 9793;
       if($('input[name=currency]:checked').val() == 'USD') {
-        $('#price').html(data.priceUSD + " $");
+        $('.currency').html("$");
+        visits = visits / 0.82;
       } else {
-        $('#price').html(data.priceEUR + " €");
+        $('.currency').html("€");
       }
-      $('#offsetnow').click(function() {
-          $.getJSON("https://api.corrently.io/v2.0/co2/compensate?co2="+$('#co2eq').val(),function(data) {
-            location.href = data;
-          })
-      })
-      $('#priceModal').modal("show");
+      $('#visits').html("<strong>"+Math.round(visits)+"</strong>");
+  }
+
+  const checkout = function() {
+    $.getJSON("https://api.corrently.io/v2.0/co2/offset?currency="+$('input[name=currency]:checked').val()+"&v="+($('#amount').val()*100)+"&token="+new Date().getTime()+"_"+getUrlParameter("host")+"&host="+getUrlParameter("host")+"&name=Offset+"+getUrlParameter("host"),function(data) {
+      location.href=data;
     })
   }
 
-
-  $('#getQuote').click(retrieveQuote)
-
-  const ui = SwaggerUIBundle({
-    url: "/assets/js/openapi.json",
-    dom_id: '#swagger-ui',
-    deepLinking: true,
-    presets: [
-      SwaggerUIBundle.presets.apis,
-      SwaggerUIStandalonePreset
-    ],
-    plugins: [
-      SwaggerUIBundle.plugins.DownloadUrl
-    ],
-    layout: "StandaloneLayout"
-  });
-
   if(getUrlParameter("host")) {
     $('.entity').html(getUrlParameter("host"))
+    $('.entity-strong').html('<strong>'+getUrlParameter("host")+"</strong>");
+    $.getJSON("https://api.corrently.io/v2.0/ghgmanage/statusimg?host="+getUrlParameter("host")+"&stats=only",function(data) {
+      let freedays = 30;
+      let ts = new Date().getTime();
+      data.credited *= 1;
+      if(data.credited > ts) {
+        ts = data.credited
+      } else {
+        if( data.credited > (ts - (86400000 * freedays))) {
+          ts = data.credited + (86400000 * freedays);
+        } else {
+          if(data.debit < freedays) {
+            ts += (86400000 * (freedays-data.debit));
+          } else {
+            ts = data.credited
+          }
+        }
+      }
+      $('.sponsor').html(data.sponsor);
+      $('.neutralstrong').html("<strong>"+new Date(ts).toLocaleDateString()+"</strong>");
+      updateCurrency();
+    });
   }
 
-  $('.qty').change(function(e) {
-    let co2 = $(e.currentTarget.parentElement.parentElement.children[3]).html() * e.target.value;
-    $(e.currentTarget.parentElement.parentElement.children[4]).html(co2);
-    if(co2 > 0) {
-      $(e.currentTarget.parentElement.parentElement.children[5].children[0]).removeAttr('disabled');
-    } else {
-      $(e.currentTarget.parentElement.parentElement.children[5].children[0]).attr('disabled','disabled');
-      $(e.currentTarget.parentElement.parentElement.children[5].children[0]).html('0.00 €');
-    }
-    $.getJSON("https://api.corrently.io/v2.0/co2/price?co2="+co2,function(data) {
-      if($('input[name=currency]:checked').val() == 'USD') {
-            $(e.currentTarget.parentElement.parentElement.children[5].children[0]).html(data.priceUSD + " $");
-      } else {
-            $(e.currentTarget.parentElement.parentElement.children[5].children[0]).html(data.priceEUR + " €");
-      }
-      $(e.currentTarget.parentElement.parentElement.children[5].children[0]).attr('data',co2);
-    });
-  });
-  $('.compbutton').click(function(e) {
-    $('#co2eq').val($(e.currentTarget).attr('data'));
-    retrieveQuote();
-  })
-
+  $('.form-check-input').click(updateCurrency);
+  $('.form-check-input').change(updateCurrency);
+  $('#amount').change(updateCurrency);
+  $('#checkout').click(checkout);
 });
