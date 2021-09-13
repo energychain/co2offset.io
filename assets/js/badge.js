@@ -32,8 +32,10 @@ $('document').ready(function() {
  const updateCode = function() {
     $('#badgelink').attr('href',"https://co2offset.io/badge.html?host="+encodeURIComponent($('#gencode').val()));
     $('#compImage').attr('src',"https://api.corrently.io/v2.0/ghgmanage/statusimg?png=1&host="+encodeURIComponent($('#gencode').val()));
+    $('#linkText').attr('href',"https://co2offset.io/badge.html?host="+encodeURIComponent($('#gencode').val()));
+    $('#linkText').html("https://co2offset.io/badge.html?host="+encodeURIComponent($('#gencode').val()));
  }
- 
+
   const updateCurrency = function() {
       let visits = $('#amount').val() * 9793;
       if($('input[name=currency]:checked').val() == 'USD') {
