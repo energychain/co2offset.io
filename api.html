@@ -108,6 +108,39 @@
             <p>© 2021 <a href="https://stromdao.de/" target="_blank">STROMDAO GmbH</a></p>
         </div>
     </footer>
+    <div class="modal fade" role="dialog" tabindex="-1" id="priceModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">CO2 Compensation Price</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>eq. Requested</td>
+                                    <td class="text-end"><span id="co2req">-</span>&nbsp;g</td>
+                                </tr>
+                                <tr>
+                                    <td>eq. Certified</td>
+                                    <td class="text-end"><span id="co2get">-</span>&nbsp;g</td>
+                                </tr>
+                                <tr class="fw-bold">
+                                    <td class="text">Your Price&nbsp;</td>
+                                    <td class="text-end"><span id="price">-</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><a class="btn btn-primary" role="button" id="offsetnow">Offset Now</a></div>
+            </div>
+        </div>
+    </div>
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="/assets/js/app.js"></script>
