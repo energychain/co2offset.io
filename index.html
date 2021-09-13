@@ -66,7 +66,7 @@
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white shadow-lg clean-navbar">
         <div class="container"><a class="navbar-brand logo" href="https://co2offset.io/">CO<sub>2</sub>&nbsp;Offset API<br><span style="font-size: 10px;">part of the Corrently Ecosystem</span>&nbsp;<br></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div title="Price Lookup for full certified CO2 compensation">
-                <div class="input-group"><input class="form-control" type="number" id="co2eq" placeholder="(Gram CO2eq)" min="1" step="1" name="co2eq"><button class="btn btn-primary" id="getQuote" type="button" data-bs-toggle="modal" data-bs-target="#priceModal"><i class="fas fa-coins"></i></button></div>
+                <div class="input-group"><input class="form-control" type="number" id="co2eq" placeholder="(Gram CO2eq)" min="1" step="1" name="co2eq"><button class="btn btn-success" id="getQuote" type="button" data-bs-toggle="modal" data-bs-target="#priceModal"><i class="fas fa-coins"></i></button></div>
                 <div class="row">
                     <div class="col"><label class="col-form-label">Currency</label></div>
                     <div class="col" style="padding-top: 6px;">
@@ -87,19 +87,19 @@
                         <h3>Your <strong>API first </strong><br>Greenhouse Gas removal Service</h3>
                         <div class="getting-started-info">
                             <p>VCS Verified CO2 Emission Reduction in accordance with the requirements of ISO 14064. Integrates&nbsp;<strong>everywhere</strong> with a snippet of code.</p>
-                        </div><a class="btn btn-primary" role="button" href="/api.html">&lt;/openAPI&gt;</a>
+                        </div><a class="btn btn-success" role="button" href="/api.html" style="margin-right: 5px;" title="OpenAPI Integration in minutes"><i class="fa fa-gears"></i></a><button class="btn btn-success" id="howserve" type="button" data-bs-toggle="modal" data-bs-target="#outservice" title="See how it works in the background"><i class="fas fa-feather-alt"></i></button>
                     </div>
                     <div class="col-md-6 text-end"><img class="img-thumbnail" src="/assets/img/Climate_Neutral_Now.png"></div>
                 </div>
             </div>
         </section>
     </main>
-    <section class="clean-block features" style="background: #ffffff;">
+    <section class="clean-block features" style="background: #ffffff;padding-bottom: 120px;">
         <div class="container">
-            <div class="block-heading" style="padding-top: 60px;">
+            <div class="block-heading" style="padding-top: 90px;">
                 <h2 class="text-info">Become Climate Neutral Now</h2>
                 <p>Offset your carbon footprint using micro Carbon Compensation Certificates <strong>starting with 1 Gram</strong>.</p>
-                <p class="text-start" style="max-width: 950px;margin-top: 25px;">Our carbon offset API service let individuals and businesses offset their environmental footprint acquiring&nbsp; certificates to reduce greenhouse gas emissions elsewhere. Carbon offsets fund specific projects that either lower carbondioxid emissions, or “sequester” CO<sub>2</sub>, meaning they take some CO<sub>2</sub>&nbsp;out of the atmosphere and store it. Some common examples of projects include reforestation, building renewable energy, carbon-storing agricultural practices, and waste and landfill management. Reforestation in particular is one of the most popular types of projects to produce carbon offsets. Carbon offsets are granted to project owners, who sell them to third parties like companies that want to balance the CO<sub>2</sub>&nbsp;they put into the atmosphere by paying to remove CO<sub>2</sub>&nbsp;from somewhere else. This API allows to become a buyer of CO<sub>2</sub>&nbsp;offset certificates.</p>
+                <p class="text-start" style="max-width: 950px;margin-top: 35px;margin-bottom: 35px;">Our carbon offset API service let individuals and businesses offset their environmental footprint acquiring&nbsp; certificates to reduce greenhouse gas emissions elsewhere. Carbon offsets fund specific projects that either lower carbondioxid emissions, or “sequester” CO<sub>2</sub>, meaning they take some CO<sub>2</sub>&nbsp;out of the atmosphere and store it. Some common examples of projects include reforestation, building renewable energy, carbon-storing agricultural practices, and waste and landfill management. Reforestation in particular is one of the most popular types of projects to produce carbon offsets. Carbon offsets are granted to project owners, who sell them to third parties like companies that want to balance the CO<sub>2</sub>&nbsp;they put into the atmosphere by paying to remove CO<sub>2</sub>&nbsp;from somewhere else. This API allows to become a buyer of CO<sub>2</sub>&nbsp;offset certificates.</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-5 feature-box"><i class="icon-star icon"></i>
@@ -130,12 +130,12 @@
                 </div>
             </div>
         </div>
-        <section class="clean-info dark" style="margin-top: 100px;margin-bottom: 50px;">
+        <section class="clean-info dark" style="margin-top: 100px;margin-bottom: 100px;">
             <div class="container">
                 <div class="text-center">
                     <h2 class="text-info">On Stage</h2>
                 </div>
-                <div class="row">
+                <div class="row" style="margin-top: 35px;">
                     <div class="col"><img class="img-fluid" src="/assets/img/ref_6.png" loading="lazy"><img class="img-fluid" src="/assets/img/ref_2.png" loading="lazy"></div>
                     <div class="col"><img class="img-fluid" src="/assets/img/ref_1.png" loading="lazy"><img class="img-fluid" src="/assets/img/ref_3.png" loading="lazy"></div>
                     <div class="col"><img class="img-fluid" src="/assets/img/ref_4.png" loading="lazy"><img class="img-fluid" src="/assets/img/ref_5.png" loading="lazy"></div>
@@ -145,7 +145,7 @@
         <section class="clean-block about-us clean-info dark">
             <div class="container">
                 <div class="block-heading">
-                    <h2 class="text-info">Showcase CO<sub>2</sub>eq Calculator</h2>
+                    <h2 class="text-info" style="padding-bottom: 35px;">Showcase CO<sub>2</sub>eq Calculator</h2>
                     <div class="table-responsive">
                         <table class="table table-sm">
                             <thead>
@@ -226,7 +226,7 @@
                 <div class="block-heading">
                     <h2>SDKs &amp; Integrations</h2>
                 </div>
-                <div class="row">
+                <div class="row" style="padding-top: 25px;">
                     <div class="col"><a href="https://github.com/energychain/co2offset-cloudflare"><img class="img-fluid" src="/assets/img/sdk_cloudflare.png" loading="lazy" style="margin-top: 35px;"></a></div>
                     <div class="col"><a href="/client-sdk/csharp-client.zip"><img class="img-fluid" src="/assets/img/sdk_csharp.png" loading="lazy"></a></div>
                     <div class="col text-center"><a href="/client-sdk/go-client.zip"><img class="img-fluid" src="/assets/img/sdk_go.png" loading="lazy" style="margin-top: 35px;"></a></div>
@@ -334,6 +334,18 @@
             </div>
         </div>
     </section>
+    <div class="modal fade" role="dialog" tabindex="-1" id="outservice">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><img src="/assets/img/ghg_footprint_32.png" style="margin-right: 5px;">Our Service for You</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Your API usage helps us in our effort to neutralise CO<sub>2</sub>&nbsp;emission globally. We invest in comprehensive, long-term projects to minimise CO<sub>2</sub>&nbsp;emissions. With a small contribution, you can make a huge difference and at the same time <strong>strengthen your CSR profile.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer class="text-center page-footer dark" style="padding-top: 100px;"><img src="https://api.thegreenwebfoundation.org/greencheckimage/co2offset.io?nocache=true" loading="lazy">
         <div></div>
         <div class="footer-copyright">
