@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Carbon Dioxide Offset - Swagger/REST API</title>
+    <meta name="theme-color" content="rgb(50,71,255)">
+    <meta property="og:image" content="https://co2offset.io/assets/img/co2offset192.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:image" content="https://co2offset.io/assets/img/co2offset192.png">
+    <meta name="description" content="REST API to offset CO2 emission">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/img/co2offset180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/co2offset192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/co2offset32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="/assets/img/co2offset180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/co2offset192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/img/co2offset512.png">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/assets/css/swagger-ui.css">
+    <link rel="stylesheet" href="/assets/css/vanilla-zoom.min.css">
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "724cbe0a-b562-45a1-9aa6-3ac6c337b950",
+    });
+  });
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "Product", 
+  "name": "Carbon Offset - 10 kg",
+  "image": "https://co2offset.io/assets/img/co2offset192.png",
+  "description": "VCS Verified CO2 Emission Reduction in accordance with the requirements of ISO 14064-1 (UN Gold Standard).",
+  "brand": "Corrently",
+  "sku": "co2o/10kg",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://co2offset.io/?co2=10000",
+    "priceCurrency": "EUR",
+    "price": "0.5",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "1"
+  }
+}
+</script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white shadow-lg clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="https://co2offset.io/">CO<sub>2</sub>&nbsp;Offset API<br><span style="font-size: 10px;">part of the Corrently Ecosystem</span>&nbsp;<br></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div title="Price Lookup for full certified CO2 compensation">
+                <div class="input-group"><input class="form-control" type="number" id="co2eq" placeholder="(Gram CO2eq)" min="1" step="1" name="co2eq"><button class="btn btn-primary" id="getQuote" type="button" data-bs-toggle="modal" data-bs-target="#priceModal"><i class="fas fa-coins"></i></button></div>
+                <div class="row">
+                    <div class="col"><label class="col-form-label">Currency</label></div>
+                    <div class="col" style="padding-top: 6px;">
+                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1" name="currency" value="EUR" checked=""><label class="form-check-label" for="formCheck-1">EUR&nbsp;</label></div>
+                    </div>
+                    <div class="col" style="margin-top: 6px;">
+                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2" name="currency" value="USD"><label class="form-check-label" for="formCheck-1">USD&nbsp;</label></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="page landing-page">
+        <section class="clean-block clean-info dark" style="padding-top: 120px;padding-bottom: 60px;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h3>Your <strong>API first </strong><br>Greenhouse Gas removal Service</h3>
+                        <div class="getting-started-info">
+                            <p>VCS Verified CO2 Emission Reduction in accordance with the requirements of ISO 14064. Integrates&nbsp;<strong>everywhere</strong> with a snippet of code.</p>
+                        </div><a class="btn btn-primary" role="button" href="https://app.swaggerhub.com/apis/corrently/co-2_offset_io/3.1.18">&lt;/openAPI&gt;</a>
+                    </div>
+                    <div class="col-md-6 text-end"><img class="img-thumbnail" src="/assets/img/Climate_Neutral_Now.png"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section class="clean-block about-us">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">REST API</h2>
+            </div>
+            <div id="swagger-ui"></div>
+        </div>
+    </section>
+    <footer class="text-center page-footer dark" style="padding-top: 100px;"><img src="https://api.thegreenwebfoundation.org/greencheckimage/co2offset.io?nocache=true" loading="lazy">
+        <div></div>
+        <div class="footer-copyright">
+            <p>© 2021 <a href="https://stromdao.de/" target="_blank">STROMDAO GmbH</a></p>
+        </div>
+    </footer>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/swagger-ui-bundle.js"></script>
+    <script src="/assets/js/swagger-ui-standalone-preset.js"></script>
+</body>
+
+</html>
