@@ -20,7 +20,9 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="/assets/css/swagger-ui.css">
     <link rel="stylesheet" href="/assets/css/vanilla-zoom.min.css">
@@ -73,7 +75,7 @@
                     <div class="col-md-6">
                         <h3>CO<sub>2</sub>&nbsp;compensation&nbsp;<span class="entity-strong"><strong>-</strong></span><br>Managed Greenhouse Gas Emission</h3>
                         <div class="getting-started-info">
-                            <p>In accordance with the users stats, network traffic and&nbsp; your uses until ~<span class="neutralstrong">-</span>&nbsp;are climate neutral. Thanks for helping to keep a sustainable coding experience.</p>
+                            <p>In accordance with the network and usage stats,&nbsp; all emissions until ~<span class="neutralstrong">-</span>&nbsp;are climate neutral (eq. compensated). Thanks for helping to keep a sustainable online experience.</p>
                         </div><button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#extendTip">Extend with a little tip</button>
                     </div>
                     <div class="col-md-6 text-end"><img src="/assets/img/ghg_footprint.png"></div>
@@ -84,7 +86,7 @@
     </main>
     <section class="text-center clean-block features" style="background: #ffffff;">
         <div class="container">
-            <h3><img src="/assets/img/co2offset_badge.png" loading="lazy" alt="Co2 Compensation Managed">&nbsp;Add badge to your project</h3><a class="btn btn-dark" role="button" href="https://github.com/energychain/co2offset.io">Markdown</a>
+            <h3><img src="/assets/img/co2offset_badge.png" loading="lazy" alt="Co2 Compensation Managed">&nbsp;Add badge to your project</h3><a class="btn btn-dark" role="button" href="https://github.com/energychain/co2offset.io">Markdown</a><button class="btn btn-dark" type="button" data-bs-toggle="modal" data-bs-target="#rtf">RichText</button>
         </div>
         <div class="modal fade" role="dialog" tabindex="-1" id="extendTip">
             <div class="modal-dialog" role="document">
@@ -123,6 +125,19 @@
                                 <p class="text-end text-success">&nbsp;~<span id="visits">-</span>&nbsp;visits</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" role="dialog" tabindex="-1" id="rtf">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Rich Text</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group"><span class="input-group-text">Identifier</span><input class="form-control" type="text" id="gencode" placeholder="Email, Package Name, ..."><button class="btn btn-primary" id="btnCode" type="button" title="Create Code"><i class="fa fa-code"></i></button></div>
+                        <p style="margin-top: 15px;">Simply drag &amp; drop image below:</p><a id="badgelink" href="#"><img id="compImage" src="https://api.corrently.io/v2.0/ghgmanage/statusimg?host=corrently.io&amp;png=1"></a>
                     </div>
                 </div>
             </div>

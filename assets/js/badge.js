@@ -29,7 +29,11 @@ $('document').ready(function() {
     }
     return false;
   };
-
+ const updateCode = function() {
+    $('#badgelink').attr('href',"https://co2offset.io/badge.html?host="+encodeURIComponent($('#gencode').val()));
+    $('#compImage').attr('src',"https://api.corrently.io/v2.0/ghgmanage/statusimg?png=1&host="+encodeURIComponent($('#gencode').val()));
+ }
+ 
   const updateCurrency = function() {
       let visits = $('#amount').val() * 9793;
       if($('input[name=currency]:checked').val() == 'USD') {
@@ -77,4 +81,6 @@ $('document').ready(function() {
   $('.form-check-input').change(updateCurrency);
   $('#amount').change(updateCurrency);
   $('#checkout').click(checkout);
+  $('#gencode').change(updateCode);
+  $('#btnCode').click(updateCode);
 });
