@@ -13,7 +13,7 @@ function myTimer() {
     var dd = countdownTime(getDoomTime()).split(" ").reverse();
     //console.log(dd.length+' '+dd);
     if (getBudgetLeft() > 0) {
-        $("#time-to-two").html("Time left until CO<sub>2</sub> budget depleted")
+        $("#time-to-two").html("Time left until CO<sub>2</sub> budget on earth depleted")
         if (6 < dd.length)
             $("#timecountdown #years").text(parseInt(dd[6])).css('color', '#000');
         else
