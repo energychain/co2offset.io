@@ -90,6 +90,61 @@
             <h2 class="text-info" style="margin-top: 35px;">Community Support</h2>
             <p>We rely on the community to let us know when an issue needs to be addressed. If you run into any issues with our service please do not hesitate to <a href="https://github.com/energychain/co2offset.io/issues/new" target="_blank">open an issue</a> on GitHub.</p>
         </div>
+        <div class="container text-start" style="margin-top: 100px;">
+            <h2 class="text-info" id="time-to-two" style="margin-top: 35px;"></h2>
+            <div id="timecountdown">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Years</h5>
+                            </div>
+                            <div class="card-body text-center" id="years"></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Months</h5>
+                            </div>
+                            <div class="card-body text-center" id="months"></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Days</h5>
+                            </div>
+                            <div class="card-body text-center" id="days"></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Hours</h5>
+                            </div>
+                            <div class="card-body text-center" id="hours"></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Minutes</h5>
+                            </div>
+                            <div class="card-body text-center" id="minutes"></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Seconds</h5>
+                            </div>
+                            <div class="card-body text-center" id="seconds"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="modal fade" role="dialog" tabindex="-1" id="priceModal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -146,6 +201,7 @@
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/timer.js"></script>
 </body>
 
 </html>
