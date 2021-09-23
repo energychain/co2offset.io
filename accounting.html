@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CO2 Accounting</title>
+    <meta name="theme-color" content="rgb(50,71,255)">
+    <meta property="og:image" content="https://co2offset.io/assets/img/co2offset192.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:image" content="https://co2offset.io/assets/img/co2offset192.png">
+    <meta name="description" content="Greenhouse Gas Footprint calculation">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/img/co2offset180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/co2offset192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/co2offset32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="/assets/img/co2offset180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/co2offset192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/img/co2offset512.png">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/assets/css/swagger-ui.css">
+    <link rel="stylesheet" href="/assets/css/vanilla-zoom.min.css">
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "724cbe0a-b562-45a1-9aa6-3ac6c337b950",
+    });
+  });
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "CO2Offset",
+    "item": "https://co2offset.io/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "Settlement Policy",
+    "item": "https://co2offset.io/settlement.html"  
+  }]
+}
+</script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white shadow-lg clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="https://co2offset.io/">CO<sub>2</sub>&nbsp;Offset API<br><span style="font-size: 10px;">part of the Corrently Ecosystem</span>&nbsp;<br></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div title="Price Lookup for full certified CO2 compensation"></div>
+        </div>
+    </nav>
+    <main class="page landing-page">
+        <section class="clean-block clean-info dark" style="padding-top: 120px;padding-bottom: 60px;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-8 col-md-6">
+                        <h3>Your&nbsp;<strong>CO</strong><sub>2</sub><strong>&nbsp;Footprint</strong><br>A ledger for Greenhouse Gas Accounting</h3>
+                        <div class="getting-started-info"></div>
+                    </div>
+                    <div class="col text-end"><img class="img-thumbnail img-fluid" src="/assets/img/co2offset192.png" loading="lazy"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section class="clean-block features" style="background: #ffffff;padding-bottom: 120px;">
+        <div class="container text-start">
+            <div class="block-heading" style="padding-top: 90px;">
+                <h2 class="text-info"><strong>Add Activity</strong></h2>
+            </div>
+            <form><input class="form-control" type="hidden" id="account" name="account"><input class="form-control" type="hidden" id="category" name="category"><input class="form-control" type="hidden" id="lang" name="lang" value="en"><input class="form-control" type="hidden" id="activity" name="activity">
+                <div class="row">
+                    <div class="col">
+                        <div class="card flex-fill h-100">
+                            <div class="card-header">
+                                <h3>Search Emissions</h3>
+                            </div>
+                            <div class="card-body text-start flex-grow-1" id="step1" style="min-height: 200px;"><label class="form-label" for="title">Activity</label>
+                                <div class="input-group"><span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-search">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                                        </svg></span><input class="form-control activityinput" type="text" id="title" name="title" placeholder="(consume electricity, drive car, eat pork,...)" required=""></div><select class="form-select suggestions activityinput" id="suggestTitle" name="suggestTitle" style="margin-top: 15px;"></select><label class="form-label suggestions" style="margin-top: 15px;" for="category">Part of</label>
+                                <div class="input-group"><span class="input-group-text suggestions"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-search">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                                        </svg></span><input class="form-control suggestions activityinput" type="text" id="categoryinput" name="category" placeholder="(Class, Category, Section,...)" required=""></div>
+                                <p id="pathCategory" class="text-muted suggestions"></p><select class="form-select activityinput" id="suggestCategory" name="suggestCategory" style="margin-top: 15px;" required=""></select><label class="form-label suggestions activityinput pec" for="topCategory" style="margin-top: 15px;">Parent Emission Category</label>
+                                <div class="input-group"><span class="input-group-text suggestions activityinput pec"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-search">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                                        </svg></span><input class="form-control ef_input suggestions activityinput pec" type="text" id="topCategory" name="category" placeholder="(Class, Category, Section,...)" required=""></div><select class="form-select ef_input suggestions activityinput pec" id="suggestTopCategory" name="suggestTopCategory" style="margin-top: 15px;margin-bottom: 25px;" required=""></select>
+                                <div class="text-end" style="margin-top: 15px;"><button class="btn btn-primary" id="applybtn" type="button" style="display:none" title="Use preset values"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-caret-right-fill" style="margin-right: 5px;">
+                                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path>
+                                        </svg>Apply</button><button class="btn btn-primary" id="refinebtn" type="button" title="Refine CO2 Emission Factor for activity"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-braces" style="margin-right: 5px;">
+                                            <path d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z"></path>
+                                        </svg>Define</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card flex-fill h-100">
+                            <div class="card-header">
+                                <h3>CO<sub>2</sub>&nbsp;Emission Factor</h3>
+                            </div>
+                            <div class="card-body text-start flex-grow-1" id="step2" style="min-height: 200px;"><label class="form-label">Unit</label><select class="form-select ef_input" id="unit" name="unit" required="">
+                                    <optgroup label="Please select">
+                                        <option value="pc">Piece</option>
+                                    </optgroup>
+                                    <optgroup label="Weights">
+                                        <option value="g">Gram</option>
+                                        <option value="kg">Kilogram</option>
+                                        <option value="lb">Pounds</option>
+                                        <option value="l">Liter</option>
+                                        <option value="gl">Galon</option>
+                                    </optgroup>
+                                    <optgroup label="Distance">
+                                        <option value="km">Kilometer</option>
+                                        <option value="mi">Mile</option>
+                                    </optgroup>
+                                    <optgroup label="Time">
+                                        <option value="yr">Year</option>
+                                        <option value="d">Day</option>
+                                        <option value="h">Hour</option>
+                                    </optgroup>
+                                    <optgroup label="Other">
+                                        <option value="kwh">Kilowatthour</option>
+                                    </optgroup>
+                                </select><label class="form-label" style="margin-top: 25px;" for="co2">CO<sub>2</sub>eq (in Grams) per&nbsp;<span class="text-unit">-</span>&nbsp;&nbsp;</label><input class="form-control ef_input" type="number" id="co2" name="co2" min="0" step="1"><label class="form-label" style="margin-top: 25px;" for="sourceurl">Source of Emission Factor&nbsp;</label><input class="form-control ef_input" type="url" id="sourceurl" name="sourceurl" placeholder="(https://...)" style="margin-bottom: 15px;"><button class="btn btn-light btn-sm ef_input" id="btnAddNote" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-journal-plus">
+                                        <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"></path>
+                                        <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"></path>
+                                        <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"></path>
+                                    </svg>&nbsp;Add Note</button><textarea class="form-control ef_note" id="note" placeholder="(Note, Remarks,...)" name="note"></textarea>
+                                <div class="text-end" style="margin-top: 25px;"><button class="btn btn-primary" id="applyCO2F" type="button" title="Use preset values"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-caret-right-fill" style="margin-right: 5px;">
+                                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path>
+                                        </svg>Apply</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div><script type="application/ld+json">
+{
+  "@context":"https://schema.org/",
+  "@type":"Dataset",
+  "name":"CO2 Footprint",
+  "description":"CO2 Footprint for pre offset calculation",
+  "url":"https://co2offset.io/",
+  "keywords":[
+     "CO2 > FOOTPRINT",
+     "API > GREENHOUSE > FOOTPRINT"
+  ],
+  "license" : "https://creativecommons.org/publicdomain/zero/1.0/",
+  "isAccessibleForFree" : true,
+  "hasPart" : [
+    {
+      "@type": "Dataset",
+      "name": "CO2eq",
+      "description": "CO2eq in Gramm",
+      "license" : "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creator":{
+         "@type":"Organization",
+         "name": "Corrently Corp"
+      }
+    }
+  ],
+  "creator":{
+     "@type":"Organization",
+     "url": "https://stromdao.de/",
+     "name":"STROMDAO GmbH",
+     "contactPoint":{
+        "@type":"ContactPoint",
+        "contactType": "customer service",
+        "telephone":"+49-6226-9680090",
+        "email":"dev@stromdao.com"
+     }
+  },
+  "funder":{
+     "@type": "Organization",
+     "sameAs": "https://stromdao.de/",
+     "name": "STROMDAO GmbH"
+  },
+  "distribution":[
+     {
+        "@type":"DataDownload",
+        "encodingFormat":"JSON",
+        "contentUrl":"https://co2offset.io/co2eq.json"
+     }
+  ]
+}
+</script>
+
+        <div class="modal fade" role="dialog" tabindex="-1" id="priceModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">CO2 Compensation Price</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>eq. Requested</td>
+                                        <td class="text-end"><span id="co2req">-</span>&nbsp;g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>eq. Certified</td>
+                                        <td class="text-end"><span id="co2get">-</span>&nbsp;g</td>
+                                    </tr>
+                                    <tr class="fw-bold">
+                                        <td class="text">Your Price&nbsp;</td>
+                                        <td class="text-end"><span id="price">-</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><a class="btn btn-primary" role="button" id="offsetnow">Offset Now</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade" role="dialog" tabindex="-1" id="outservice">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><img src="/assets/img/ghg_footprint_32.png" style="margin-right: 5px;">Our Service for You</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Your API usage helps us in our effort to neutralize CO2&nbsp;emissions globally. We invest in comprehensive, long-term projects to minimize CO2&nbsp;emissions. With a small contribution, you can make a huge difference and at the same time&nbsp;strengthen your CSR profile.<br></p>
+                    <h3><strong>Mission Target</strong></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center page-footer dark" style="padding-top: 100px;"><img src="https://api.thegreenwebfoundation.org/greencheckimage/co2offset.io?nocache=true" loading="lazy">
+        <div></div>
+        <div class="footer-copyright">
+            <p>© 2021 <a href="https://stromdao.de/" target="_blank">STROMDAO GmbH</a></p>
+        </div>
+    </footer>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/accounting.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Open CO2 Emission Taxonomy</title>
+    <meta name="theme-color" content="rgb(50,71,255)">
+    <meta property="og:image" content="https://co2offset.io/assets/img/co2offset192.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:image" content="https://co2offset.io/assets/img/co2offset192.png">
+    <meta name="description" content="Open Greenhouse Gas Footprint Taxonomy">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/img/co2offset180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/co2offset192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/co2offset32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="/assets/img/co2offset180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/co2offset192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/img/co2offset512.png">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/assets/css/swagger-ui.css">
+    <link rel="stylesheet" href="/assets/css/vanilla-zoom.min.css">
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "724cbe0a-b562-45a1-9aa6-3ac6c337b950",
+    });
+  });
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "CO2Offset",
+    "item": "https://co2offset.io/"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "Settlement Policy",
+    "item": "https://co2offset.io/settlement.html"  
+  }]
+}
+</script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white shadow-lg clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="https://co2offset.io/">CO<sub>2</sub>&nbsp;Offset API<br><span style="font-size: 10px;">part of the Corrently Ecosystem</span>&nbsp;<br></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div title="Price Lookup for full certified CO2 compensation"></div>
+        </div>
+    </nav>
+    <main class="page landing-page">
+        <section class="clean-block clean-info dark" style="padding-top: 120px;padding-bottom: 60px;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-8 col-md-6">
+                        <h3>Open&nbsp;<strong>CO</strong><sub>2</sub><strong>&nbsp;Footprint</strong><br>Taxonomy</h3>
+                        <div class="getting-started-info"></div>
+                    </div>
+                    <div class="col text-end"><img class="img-thumbnail img-fluid" src="/assets/img/co2offset192.png" loading="lazy"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section class="clean-block features" style="background: #ffffff;padding-bottom: 120px;">
+        <div class="container text-start">
+            <form><input class="form-control" type="hidden" id="account" name="account"><input class="form-control" type="hidden" id="category" name="category"><input class="form-control" type="hidden" id="lang" name="lang" value="en"><input class="form-control" type="hidden" id="activity" name="activity">
+                <div class="row">
+                    <div class="col">
+                        <div class="card flex-fill h-100">
+                            <div class="card-header">
+                                <h3><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-tree" style="margin-right: 5px;">
+                                        <path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507z"></path>
+                                    </svg>Tree</h3>
+                            </div>
+                            <div class="card-body text-start flex-grow-1" id="step1" style="min-height: 200px;">
+                                <ul id="pathTree"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card flex-fill h-100">
+                            <div class="card-header">
+                                <h3><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-gear" style="margin-right: 5px;">
+                                        <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"></path>
+                                        <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"></path>
+                                    </svg><span id="activeCategory">&nbsp;</span></h3>
+                            </div>
+                            <div class="card-body text-start flex-grow-1" id="step-1" style="min-height: 200px;"><button class="btn btn-primary" id="pcbutton" type="button" data-bs-toggle="modal" data-bs-target="#modAddCat" style="margin: 5px 5px 5px 5px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-node-plus-fill" style="margin-right: 5px;">
+                                        <path d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13zm.5-7.5v2h2a.5.5 0 0 1 0 1h-2v2a.5.5 0 0 1-1 0v-2h-2a.5.5 0 0 1 0-1h2v-2a.5.5 0 0 1 1 0z"></path>
+                                    </svg>add Category</button><button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modAddActiv" style="margin: 5px 5px 5px 5px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-calculator">
+                                        <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"></path>
+                                        <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"></path>
+                                    </svg>&nbsp;add Activity</button></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal fade" role="dialog" tabindex="-1" id="modAddActiv">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add Activity</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form><label class="form-label" for="title">Activity Description</label><input class="form-control" type="text" id="title" name="title"><label class="form-label">Unit</label><select class="form-select ef_input" id="unit" name="unit" required="">
+                                <optgroup label="Please select">
+                                    <option value="pc">Piece</option>
+                                </optgroup>
+                                <optgroup label="Weights">
+                                    <option value="g">Gram</option>
+                                    <option value="kg">Kilogram</option>
+                                    <option value="lb">Pounds</option>
+                                    <option value="l">Liter</option>
+                                    <option value="gl">Galon</option>
+                                </optgroup>
+                                <optgroup label="Distance">
+                                    <option value="km">Kilometer</option>
+                                    <option value="mi">Mile</option>
+                                </optgroup>
+                                <optgroup label="Time">
+                                    <option value="yr">Year</option>
+                                    <option value="d">Day</option>
+                                    <option value="h">Hour</option>
+                                </optgroup>
+                                <optgroup label="Other">
+                                    <option value="kwh">Kilowatthour</option>
+                                </optgroup>
+                            </select><label class="form-label" style="margin-top: 25px;" for="co2">CO<sub>2</sub>eq (in Grams) per&nbsp;<span class="text-unit">-</span>&nbsp;&nbsp;</label><input class="form-control ef_input" type="number" id="co2" name="co2" min="0" step="1"><label class="form-label" style="margin-top: 25px;" for="sourceurl">Source of Emission Factor&nbsp;</label><input class="form-control ef_input" type="url" id="sourceurl" name="sourceurl" placeholder="(https://...)" style="margin-bottom: 15px;"><textarea class="form-control ef_note" id="note" placeholder="(Note, Remarks,...)" name="note"></textarea></form>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" id="saveActivity" type="button">Save</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" role="dialog" tabindex="-1" id="modAddCat">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add Category</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group"><span class="input-group-text">Name</span><input class="form-control" type="text" id="subcatTitle"></div>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" id="btnSaveCat" type="button">Save</button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="text-center page-footer dark" style="padding-top: 100px;"><img src="https://api.thegreenwebfoundation.org/greencheckimage/co2offset.io?nocache=true" loading="lazy">
+        <div></div>
+        <div class="footer-copyright">
+            <p>© 2021 <a href="https://stromdao.de/" target="_blank">STROMDAO GmbH</a></p>
+        </div>
+    </footer>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/taxonomy.js"></script>
+</body>
+
+</html>

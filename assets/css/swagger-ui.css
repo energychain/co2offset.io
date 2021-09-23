@@ -13349,3 +13349,27 @@
 
 /* # sourceMappingURL=swagger-ui.css.map */
 
+.suggestions {
+  display: none;
+}
+
+.topCatSelection {
+  display: none;
+}
+
+#applyCO2F {
+  display: none;
+}
+
+#suggestCategory {
+  display: none;
+}
+
+#note {
+  /*display: none;*/
+}
+
+ul {
+  list-style-type: none;
+}
+

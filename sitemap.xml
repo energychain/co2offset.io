@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
+        <loc>https://co2offset.io/accounting.html</loc>
+    </url>
+    <url>
         <loc>https://co2offset.io/api.html</loc>
     </url>
     <url>
@@ -22,12 +25,21 @@
         <loc>https://co2offset.io/settlement.html</loc>
     </url>
     <url>
+        <loc>https://co2offset.io/strom_deutschland.html</loc>
+    </url>
+    <url>
         <loc>https://co2offset.io/support.html</loc>
+    </url>
+    <url>
+        <loc>https://co2offset.io/taxonomy.html</loc>
     </url>
     <url>
         <loc>https://co2offset.io/terms.html</loc>
     </url>
     <url>
         <loc>https://co2offset.io/timer.html</loc>
+    </url>
+    <url>
+        <loc>https://co2offset.io/validation.html</loc>
     </url>
 </urlset>
