@@ -22,7 +22,7 @@ $(document).ready(function() {
       let hit = d[i]._source;
       window.hitCache[hit.activity] = hit;
 
-      html += '<div class="card col">';
+      html += '<div class="card" style="min-width:350px;padding:10px;">';
       html += ' <div class="card-header text-truncate text-nowrap text-start">';
       html += '  <a href="'+hit.sourceurl+'" target="_blank">'+hit.title+'</a>';
       html += '  <span class="badge rounded-pill bg-info text-center float-end">'+niceNumberUnitCO2(hit.co2eq)+'/'+hit.unit+'</span>';
@@ -32,8 +32,9 @@ $(document).ready(function() {
       html += ' <div class="col-10">';
       html += '  <p class="card-text">'+hit.description+'</p>'
       html += ' </div>';
-      html += ' <div class="col">';
-      html += ' <button type="button" style="float:right" data="'+hit.activity+'" class="btn btn-sm btn-succcess btn-clone"><i class="far fa-clone"></i></button>';
+      html += ' <div class="col text-center">';
+      html += ' <button type="button" style="float:right" data="'+hit.activity+'" class="btn btn-sm btn-succcess btn-clone semi-white w-100"><i class="far fa-clone"></i></button>';
+      html += ' <button type="button" style="float:right" data="'+hit.activity+'" class="btn btn-sm btn-succcess btn-shop semi-white w-100"><i class="fas fa-shopping-cart"></i></button>'
       html += ' </div>';
       html += ' </div>';
       html += ' </div>';
