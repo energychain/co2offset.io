@@ -134,6 +134,30 @@ $(document).ready(function() {
       });
       recalcCO2();
     }
+    if( window.hitCache[$(this).attr('data')].unit == 'kwh') {
+      $('#shopunits').unbind();
+      $('#shopunits').attr('data-unit','kwh');
+      $('#shopunits').attr('data-co2',window.hitCache[$(this).attr('data')].co2eq);
+      let html = '';
+      html += '<option value="1" selected="selected">kWh</option>';
+      $('#shopunits').html(html);
+      $('#shopunits').change(function() {
+        recalcCO2();
+      });
+      recalcCO2();
+    }
+    if( window.hitCache[$(this).attr('data')].unit == 'pc') {
+      $('#shopunits').unbind();
+      $('#shopunits').attr('data-unit','pc');
+      $('#shopunits').attr('data-co2',window.hitCache[$(this).attr('data')].co2eq);
+      let html = '';
+      html += '<option value="1" selected="selected">pcs</option>';
+      $('#shopunits').html(html);
+      $('#shopunits').change(function() {
+        recalcCO2();
+      });
+      recalcCO2();
+    }
     var myModal = new bootstrap.Modal($(modal_shop))
     myModal.show()
   });
@@ -174,6 +198,6 @@ $(document).ready(function() {
   const browserLang = navigator.language || navigator.userLanguage;
   let lng = 'en';
   if(browserLang.substring(0,2) == 'de') lng = 'de';
-  
+
   $('.fldlang').val(lng);
 });
