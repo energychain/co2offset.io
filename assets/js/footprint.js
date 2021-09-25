@@ -83,8 +83,7 @@ $(document).ready(function() {
     e.preventDefault(); // prevent native submit
     $(this).ajaxSubmit({
         success:function(d) {
-          var myModal = new bootstrap.Modal($(modal_add))
-          myModal.hide()
+          location.reload();
         }
     })
   });
