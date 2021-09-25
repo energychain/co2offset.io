@@ -171,5 +171,9 @@ $(document).ready(function() {
   } else {
     $('#account').val(window.localStorage.getItem("account"));
   }
-
+  const browserLang = navigator.language || navigator.userLanguage;
+  let lng = 'en';
+  if(browserLang.substring(0,2) == 'de') lng = 'de';
+  
+  $('.fldlang').val(lng);
 });
