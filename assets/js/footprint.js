@@ -158,6 +158,60 @@ $(document).ready(function() {
       });
       recalcCO2();
     }
+    if( window.hitCache[$(this).attr('data')].unit == 'km') {
+      $('#shopunits').unbind();
+      $('#shopunits').attr('data-unit','km');
+      $('#shopunits').attr('data-co2',window.hitCache[$(this).attr('data')].co2eq);
+      let html = '';
+      html += '<option value="1" selected="selected">km</option>';
+      html += '<option value="0.6213">mi</option>';
+      $('#shopunits').html(html);
+      $('#shopunits').change(function() {
+        recalcCO2();
+      });
+      recalcCO2();
+    }
+    if( window.hitCache[$(this).attr('data')].unit == 'kg') {
+      $('#shopunits').unbind();
+      $('#shopunits').attr('data-unit','kg');
+      $('#shopunits').attr('data-co2',window.hitCache[$(this).attr('data')].co2eq);
+      let html = '';
+      html += '<option value="1" selected="selected">kg</option>';
+      html += '<option value="1000" >g</option>';
+      html += '<option value="0.001">t</option>';
+      $('#shopunits').html(html);
+      $('#shopunits').change(function() {
+        recalcCO2();
+      });
+      recalcCO2();
+    }
+    if( window.hitCache[$(this).attr('data')].unit == 't') {
+      $('#shopunits').unbind();
+      $('#shopunits').attr('data-unit','t');
+      $('#shopunits').attr('data-co2',window.hitCache[$(this).attr('data')].co2eq);
+      let html = '';
+      html += '<option value="1" selected="selected">t</option>';
+      html += '<option value="1000" >kg</option>';
+      html += '<option value="1000000">g</option>';
+      $('#shopunits').html(html);
+      $('#shopunits').change(function() {
+        recalcCO2();
+      });
+      recalcCO2();
+    }
+    if( window.hitCache[$(this).attr('data')].unit == 'l') {
+      $('#shopunits').unbind();
+      $('#shopunits').attr('data-unit','l');
+      $('#shopunits').attr('data-co2',window.hitCache[$(this).attr('data')].co2eq);
+      let html = '';
+      html += '<option value="1" selected="selected">l</option>';
+      html += '<option value="0.264" >gl</option>';
+      $('#shopunits').html(html);
+      $('#shopunits').change(function() {
+        recalcCO2();
+      });
+      recalcCO2();
+    }
     var myModal = new bootstrap.Modal($(modal_shop))
     myModal.show()
   });
