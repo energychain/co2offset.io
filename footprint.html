@@ -75,8 +75,20 @@
             </div>
         </section>
         <section>
-            <div class="container text-center"><button class="btn btn-primary" id="btn_missing" type="button" data-bs-toggle="modal" data-bs-target="#modal_add" style="display:none;margin-top:35px;margin-bottom:35px;"><i class="far fa-sticky-note"></i>add Missing</button>
+            <div class="container text-center" style="padding-top: 35px;">
                 <div class="card-group" id="resultsGroup"></div>
+                <div class="table-responsive" id="tblResults" style="margin-top: 35px;">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Activity</th>
+                                <th>CO<sub>2</sub>&nbsp;- Footprint</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsTable"></tbody>
+                    </table>
+                </div><button class="btn btn-primary" id="btn_missing" type="button" data-bs-toggle="modal" data-bs-target="#modal_add" style="display:none;margin-top:35px;margin-bottom:35px;"><i class="far fa-sticky-note"></i>add Missing</button>
             </div>
         </section>
         <div class="container text-start" style="padding-top: 35px;padding-bottom: 35px;">
@@ -123,6 +135,70 @@
                                         </svg>Create</button></div>
                             </form>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade shadow" role="dialog" tabindex="-1" id="modal_shop">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" style="background: #f7fff0;">
+                            <h4 class="modal-title text-black-50">Direct Compensation</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h5 class="activityTitle">-</h5>
+                            <p class="activityDescription">-</p>
+                            <div class="row">
+                                <div class="col"><label class="form-label">Quantity</label><input type="number" id="qty" class="form-control" placeholder="(Quantity)" name="qty" value="1"></div>
+                                <div class="col"><label class="form-label d-block">Unit</label><select id="shopunits" class="form-select" name="shopunits" required=""></select></div>
+                            </div>
+                            <p class="text-center text-muted" style="margin-top: 15px;">~<span id="co2eqbasket" class="text-dark">-</span> CO<sub>2</sub>e</p>
+                            <div title="Price Lookup for full certified CO2 compensation" style="margin-top: 15px;">
+                                <div class="input-group"></div>
+                                <div class="row">
+                                    <div class="col" style="text-align: right;"><label class="col-form-label">Currency</label></div>
+                                    <div class="col" style="padding-top: 6px;">
+                                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1" name="currency" value="EUR" checked=""><label class="form-check-label" for="formCheck-1">€ (EUR)</label></div>
+                                    </div>
+                                    <div class="col" style="margin-top: 6px;">
+                                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2" name="currency" value="USD"><label class="form-check-label" for="formCheck-1">$ (USD)&nbsp;&nbsp;</label></div>
+                                    </div>
+                                    <div class="col"><button class="btn btn-success" id="getQuote" type="button" data-bs-toggle="modal" data-bs-target="#priceModal"><i class="fas fa-coins"></i>&nbsp;Price</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="priceModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">CO2 Compensation Price</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Offset requested</td>
+                                            <td class="text-end"><span id="co2req">-</span>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Offset certified</td>
+                                            <td class="text-end"><span id="co2get">-</span>&nbsp;</td>
+                                        </tr>
+                                        <tr class="fw-bold">
+                                            <td class="text">Your Price&nbsp;</td>
+                                            <td class="text-end"><span id="price">-</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><a class="btn btn-success" role="button" id="offsetnow"><i class="fas fa-shopping-basket"></i>Offset Now</a></div>
                     </div>
                 </div>
             </div>

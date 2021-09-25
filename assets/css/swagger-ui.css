@@ -13373,3 +13373,7 @@ ul {
   list-style-type: none;
 }
 
+#tblResults {
+  display: none;
+}
+
