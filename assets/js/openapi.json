@@ -153,6 +153,58 @@
         }
       }
     },
+    "/co2/goldstandard/projects": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Query available Gold Standard (VER) Projects",
+        "operationId": "co2gsprojects",
+        "description": "Search projects with CO2 Emission Reductions following Gold Standard - Query registry.\n",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Search Query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "GS11256"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/co2/goldstandard/credits": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Query available Gold Standard (VER) Projects",
+        "operationId": "co2gscredits",
+        "description": "Search credit blocks with CO2 Emission Reductions following Gold Standard - Query registry and trace to project.\n",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Search Query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "GS1-1-TR-GS947-12-2013-3896-62367"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/co2/price": {
       "get": {
         "tags": [
@@ -372,7 +424,7 @@
     "/co2/activity/search": {
       "get": {
         "tags": [
-          "GO2-Footprint-Database"
+          "CO2-Footprint-Database"
         ],
         "summary": "Database of activities and corresponding CO2 footprint.",
         "operationId": "activitySearch",
