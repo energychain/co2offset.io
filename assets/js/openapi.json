@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "version": "3.1.19",
+    "version": "3.1.18",
     "title": "co2offset.io",
     "contact": {
       "email": "dev@stromdao.com",
@@ -24,10 +24,6 @@
     {
       "name": "GHG-Accounting",
       "description": "Greenhouse Gas Accounting following the [GHG-Protocol](https://ghgprotocol.org/) allowing to realtime monitoring of emission, compensation and efforts. Keeps latest GHG-balance sheet as a service to implement data in tactical and strategical business operations.\n"
-    },
-    {
-      "name": "CO2-Footprint-Database",
-      "description": "Queryable Database to lookup CO2 Footprint of several activities/countries.\n"
     }
   ],
   "servers": [
@@ -149,58 +145,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/co2/goldstandard/projects": {
-      "get": {
-        "tags": [
-          "CO2-Offset"
-        ],
-        "summary": "Query available Gold Standard (VER) Projects",
-        "operationId": "co2gsprojects",
-        "description": "Search projects with CO2 Emission Reductions following Gold Standard - Query registry.\n",
-        "parameters": [
-          {
-            "name": "query",
-            "in": "query",
-            "description": "Search Query",
-            "schema": {
-              "type": "string"
-            },
-            "example": "GS11256"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/co2/goldstandard/credits": {
-      "get": {
-        "tags": [
-          "CO2-Offset"
-        ],
-        "summary": "Query available Gold Standard (VER) Projects",
-        "operationId": "co2gscredits",
-        "description": "Search credit blocks with CO2 Emission Reductions following Gold Standard - Query registry and trace to project.\n",
-        "parameters": [
-          {
-            "name": "query",
-            "in": "query",
-            "description": "Search Query",
-            "schema": {
-              "type": "string"
-            },
-            "example": "GS1-1-TR-GS947-12-2013-3896-62367"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
           }
         }
       }
@@ -414,32 +358,6 @@
         "summary": "List of all settlements availabe for a given clearing",
         "operationId": "ghgclearingsettlements",
         "description": "Full inner consensus chain that builds up a balance sheet for greenhouse gases. \n",
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/co2/activity/search": {
-      "get": {
-        "tags": [
-          "CO2-Footprint-Database"
-        ],
-        "summary": "Database of activities and corresponding CO2 footprint.",
-        "operationId": "activitySearch",
-        "description": "Query for activities like train, flight, food, ...\n",
-        "parameters": [
-          {
-            "name": "q",
-            "in": "query",
-            "description": "Search String",
-            "schema": {
-              "type": "string"
-            },
-            "example": "Electricity"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Success"
