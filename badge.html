@@ -64,13 +64,17 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white text-end shadow-lg clean-navbar">
-        <div class="container"><a class="navbar-brand logo" href="https://co2offset.io/">CO<sub>2</sub>Offset API<br><span style="font-size: 10px;">part of the Corrently Ecosystem</span>&nbsp;<br></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="text-end" title="Calling Entity"><span class="badge bg-success entity">-</span></div>
+        <div class="container"><a class="navbar-brand logo" href="https://co2offset.io/">CO<sub>2</sub>Offset API<br><span style="font-size: 10px;">part of the Corrently Ecosystem</span>&nbsp;<br></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <div class="text-end w-100 isloggedin"><span><i class="fas fa-coins" style="margin-right:5px;"></i>&nbsp;<span class="credits">-</span>&nbsp;Credits</span></div>
+                <div class="text-end isloggedout w-100"><button class="btn btn-primary float-end isloggedout" type="button" data-bs-toggle="modal" data-bs-target="#modaLogin"><i class="far fa-user"></i>Login</button></div>
+            </div>
         </div>
     </nav>
     <main class="page landing-page">
         <section class="clean-block clean-info dark" style="padding-top: 120px;padding-bottom: 60px;">
             <div class="container">
+                <div class="text-end w-100" title="Calling Entity"><span class="badge bg-success entity">-</span></div>
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <h3>CO<sub>2</sub>&nbsp;compensation&nbsp;<span class="entity-strong"><strong>-</strong></span><br>Managed Greenhouse Gas Emission</h3>
@@ -202,6 +206,22 @@
             </div>
         </div>
     </section>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modaLogin">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login / Register</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="https://api.corrently.io/v2.0/co2/login" method="get"><input class="form-control redirectfld" type="hidden" name="redirect"><input class="form-control sessionfld" type="hidden" name="session"><label class="form-label">Email (via Magic-Link)</label>
+                        <div class="input-group"><input class="form-control" type="email" id="email" required="" name="email"><button class="btn btn-primary" type="submit">Login</button></div>
+                    </form>
+                    <p style="margin-top: 25px;">or</p>
+                    <div class="text-center"><a id="loginlink" href="#"><img src="/assets/img/btn_google_signin_dark_normal_web.png"></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer class="text-center page-footer dark" style="padding-top: 100px;"><img src="https://api.thegreenwebfoundation.org/greencheckimage/co2offset.io?nocache=true" loading="lazy">
         <div></div>
         <div class="footer-copyright">
@@ -214,6 +234,7 @@
     <script src="/assets/js/badge.js"></script>
     <script src="/assets/js/footprint.js"></script>
     <script src="/assets/js/timer.js"></script>
+    <script src="/assets/js/login.js"></script>
 </body>
 
 </html>

@@ -76,18 +76,10 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white shadow-lg clean-navbar">
-        <div class="container"><a class="navbar-brand logo" href="https://co2offset.io/">CO<sub>2</sub>&nbsp;Offset API<br><span style="font-size: 10px;">part of the Corrently Ecosystem</span>&nbsp;<br></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div title="Price Lookup for full certified CO2 compensation">
-                <div class="input-group"><input class="form-control" type="number" id="co2eq" placeholder="(Gram CO2eq)" min="1" step="1" name="co2eq"><button class="btn btn-success" id="getQuote" type="button" data-bs-toggle="modal" data-bs-target="#priceModal"><i class="fas fa-coins"></i></button></div>
-                <div class="row">
-                    <div class="col"><label class="col-form-label">Currency</label></div>
-                    <div class="col" style="padding-top: 6px;">
-                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1" name="currency" value="EUR" checked=""><label class="form-check-label" for="formCheck-1">EUR&nbsp;</label></div>
-                    </div>
-                    <div class="col" style="margin-top: 6px;">
-                        <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2" name="currency" value="USD"><label class="form-check-label" for="formCheck-1">USD&nbsp;</label></div>
-                    </div>
-                </div>
+        <div class="container"><a class="navbar-brand logo" href="https://co2offset.io/">CO<sub>2</sub>&nbsp;Offset API<br><span style="font-size: 10px;">part of the Corrently Ecosystem</span>&nbsp;<br></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <div class="text-end w-100 isloggedin"><span><i class="fas fa-coins" style="margin-right:5px;"></i>&nbsp;<span class="credits">-</span>&nbsp;Credits</span></div>
+                <div class="text-end isloggedout w-100"><button class="btn btn-primary float-end isloggedout" type="button" data-bs-toggle="modal" data-bs-target="#modaLogin"><i class="far fa-user"></i>Login</button></div>
             </div>
         </div>
     </nav>
@@ -416,6 +408,22 @@
             </div>
         </div>
     </section>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modaLogin">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login / Register</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="https://api.corrently.io/v2.0/co2/login" method="get"><input class="form-control redirectfld" type="hidden" name="redirect"><input class="form-control sessionfld" type="hidden" name="session"><label class="form-label">Email (via Magic-Link)</label>
+                        <div class="input-group"><input class="form-control" type="email" id="email" required="" name="email"><button class="btn btn-primary" type="submit">Login</button></div>
+                    </form>
+                    <p style="margin-top: 25px;">or</p>
+                    <div class="text-center"><a id="loginlink" href="#"><img src="/assets/img/btn_google_signin_dark_normal_web.png"></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" role="dialog" tabindex="-1" id="outservice">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -489,6 +497,7 @@
     <script src="/assets/js/app.js"></script>
     <script src="/assets/js/footprint.js"></script>
     <script src="/assets/js/timer.js"></script>
+    <script src="/assets/js/login.js"></script>
 </body>
 
 </html>
