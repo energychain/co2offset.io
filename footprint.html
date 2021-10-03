@@ -55,7 +55,11 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white shadow-lg clean-navbar">
-        <div class="container"><a class="navbar-brand logo" href="https://co2offset.io/">CO<sub>2</sub>&nbsp;Offset API<br><span style="font-size: 10px;">part of the Corrently Ecosystem</span>&nbsp;<br></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+        <div class="container"><a class="navbar-brand logo" href="https://co2offset.io/">CO<sub>2</sub>&nbsp;Offset API<br><span style="font-size: 10px;">part of the Corrently Ecosystem</span>&nbsp;<br></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse text-end" id="navcol-1">
+                <div class="text-end w-100 isloggedin"><span><i class="fas fa-coins" style="margin-right:5px;"></i>&nbsp;<span class="credits">-</span>&nbsp;Credits</span></div><a class="float-end isloggedout w-100" id="loginlink" href="#"><img src="/assets/img/btn_google_signin_dark_normal_web.png"></a>
+            </div>
+        </div>
     </nav>
     <main class="page landing-page">
         <section class="clean-block clean-info dark" style="padding-top: 120px;padding-bottom: 60px;">
@@ -74,7 +78,7 @@
                 </div>
             </div>
         </section>
-        <section>
+        <section><input type="hidden" id="fldcredits" name="fldcredits" value="0">
             <div class="container text-center" style="padding-top: 35px;">
                 <div class="card-group" id="resultsGroup"></div>
                 <div class="table-responsive" id="tblResults" style="margin-top: 35px;">
@@ -188,8 +192,8 @@
                                             <td class="text-end"><span id="co2req">-</span>&nbsp;</td>
                                         </tr>
                                         <tr>
-                                            <td>Offset certified</td>
-                                            <td class="text-end"><span id="co2get">-</span>&nbsp;</td>
+                                            <td>- Credits</td>
+                                            <td class="text-end creditsoff"><span id="co2get">-</span>&nbsp;</td>
                                         </tr>
                                         <tr class="fw-bold">
                                             <td class="text">Your Price&nbsp;</td>

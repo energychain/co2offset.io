@@ -3,21 +3,47 @@ $(document).ready(function() {
 
   const retrieveQuote = function() {
     $('#modal_shop').modal("hide");
-    $.getJSON("https://api.corrently.io/v2.0/co2/price?co2="+$('#co2eqbasket').attr("data-g"),function(data) {
-      $('#co2req').html(niceNumberUnitCO2(data.reqCO2));
-      $('#co2get').html(niceNumberUnitCO2(data.getCO2));
-      if($('input[name=currency]:checked').val() == 'USD') {
-        $('#price').html(data.priceUSD + " $");
-      } else {
-        $('#price').html(data.priceEUR + " €");
-      }
-      $('#offsetnow').click(function() {
-          $.getJSON("https://api.corrently.io/v2.0/co2/compensate?co2="+$('#co2eqbasket').attr("data-g"),function(data) {
-            location.href = data;
-          })
+    $('#price').html("0");
+    let required = $('#co2eqbasket').attr("data-g");
+    let credits = $('#fldcredits').val();
+    let remain = required - credits;
+    let creditsslug = '';
+    if(window.localStorage.getItem("session") !== null) {
+      creditsslug = '&session='+window.localStorage.getItem("session")+"&account="+window.localStorage.getItem("account");
+    }
+    if(remain >0 ) {
+      $.getJSON("https://api.corrently.io/v2.0/co2/price?co2="+remain,function(data) {
+        $('#co2req').html(niceNumberUnitCO2(required));
+        $('#co2get').html(niceNumberUnitCO2(credits));
+        if($('input[name=currency]:checked').val() == 'USD') {
+          $('#price').html(data.priceUSD + " $");
+        } else {
+          $('#price').html(data.priceEUR + " €");
+        }
+        $('#offsetnow').click(function() {
+            $.getJSON("https://api.corrently.io/v2.0/co2/compensate?co2="+required+creditsslug,function(data) {
+              location.href = data;
+            })
+        })
+        $('#priceModal').modal("show");
       })
-      $('#priceModal').modal("show");
-    })
+    } else {
+        $('#co2req').html(niceNumberUnitCO2($('#co2eqbasket').attr("data-g")));
+        $('#co2get').html(niceNumberUnitCO2($('#co2eqbasket').attr("data-g")));
+        if($('input[name=currency]:checked').val() == 'USD') {
+          $('#price').html("0.00 $");
+        } else {
+          $('#price').html("0.00 €");
+        }
+        $('#offsetnow').click(function() {
+            $.getJSON("https://api.corrently.io/v2.0/co2/compensate?co2="+required+creditsslug,function(data) {
+              location.href = data;
+            })
+        });
+        $('#priceModal').modal("show");
+    }
+
+
   }
 
   $('#getQuote').click(retrieveQuote)
@@ -241,13 +267,48 @@ $(document).ready(function() {
 
   $('#unit').change(unitChange);
 
-  if(window.localStorage.getItem("account") == null) {
-      $.getJSON("https://api.corrently.io/v2.0/stromkonto/create",function(data) {
-          window.localStorage.setItem("account",data);
-          $('#account').val(data);
-      });
+
+  const getUrlVars = function()
+  {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+      hash = hashes[i].split('=');
+      vars.push(hash[0]);
+      vars[hash[0]] = hash[1];
+    }
+    return vars;
+  }
+
+  $('.loggedout').hide();
+
+  if(typeof getUrlVars().account !== 'undefined') {
+       window.localStorage.setItem("account",getUrlVars().account);
+      $('#account').val(getUrlVars().account);
+      $('.isloggedout').hide();
+      $('.isloggedin').show();
   } else {
-    $('#account').val(window.localStorage.getItem("account"));
+      $.getJSON("https://api.corrently.io/v2.0/stromkonto/create",function(session) {
+        $('#loginlink').attr('href','https://api.corrently.io/auth/google/?&redirect='+encodeURIComponent(location.href)+"&session="+session);
+        window.localStorage.setItem("session",session);
+        $('.isloggedout').show();
+        $('.isloggedin').hide();
+      });
+      if(window.localStorage.getItem("account") == null) {
+          $.getJSON("https://api.corrently.io/v2.0/stromkonto/create",function(data) {
+              window.localStorage.setItem("account",data);
+              $('#account').val(data);
+          });
+      } else {
+        $('#account').val(window.localStorage.getItem("account"));
+      }
+  }
+  if(window.localStorage.getItem("account") !== null) {
+      $.getJSON("https://api.corrently.io/v2.0/co2/credits?account="+window.localStorage.getItem("account"),function(data) {
+          $('.credits').html(data.balance);
+          $('#fldcredits').val(data.balance);
+      });
   }
   const browserLang = navigator.language || navigator.userLanguage;
   let lng = 'en';
