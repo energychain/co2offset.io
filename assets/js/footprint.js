@@ -160,6 +160,22 @@ $(document).ready(function() {
       });
       recalcCO2();
     }
+    if( window.hitCache[$(this).attr('data')].unit == 'h') {
+      $('#shopunits').unbind();
+      $('#shopunits').attr('data-unit','h');
+      $('#shopunits').attr('data-co2',window.hitCache[$(this).attr('data')].co2eq);
+      let html = '';
+      html += '<option value="8760">Year</option>';
+      html += '<option value="720">Month</option>';
+      html += '<option value="168">Week</option>';
+      html += '<option value="24">Day</option>';
+      html += '<option value="1" selected="selected">Hour</option>';
+      $('#shopunits').html(html);
+      $('#shopunits').change(function() {
+        recalcCO2();
+      });
+      recalcCO2();
+    }
     if( window.hitCache[$(this).attr('data')].unit == 'kwh') {
       $('#shopunits').unbind();
       $('#shopunits').attr('data-unit','kwh');
