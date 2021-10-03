@@ -292,6 +292,8 @@ $(document).ready(function() {
       $.getJSON("https://api.corrently.io/v2.0/stromkonto/create",function(session) {
         $('#loginlink').attr('href','https://api.corrently.io/auth/google/?&redirect='+encodeURIComponent(location.href)+"&session="+session);
         window.localStorage.setItem("session",session);
+        $('.sessionfld').val(session);
+        $('.redirectfld').val(location.href);
         $('.isloggedout').show();
         $('.isloggedin').hide();
       });

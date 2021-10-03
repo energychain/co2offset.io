@@ -57,7 +57,8 @@
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white shadow-lg clean-navbar">
         <div class="container"><a class="navbar-brand logo" href="https://co2offset.io/">CO<sub>2</sub>&nbsp;Offset API<br><span style="font-size: 10px;">part of the Corrently Ecosystem</span>&nbsp;<br></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse text-end" id="navcol-1">
-                <div class="text-end w-100 isloggedin"><span><i class="fas fa-coins" style="margin-right:5px;"></i>&nbsp;<span class="credits">-</span>&nbsp;Credits</span></div><a class="float-end isloggedout w-100" id="loginlink" href="#"><img src="/assets/img/btn_google_signin_dark_normal_web.png"></a>
+                <div class="text-end w-100 isloggedin"><span><i class="fas fa-coins" style="margin-right:5px;"></i>&nbsp;<span class="credits">-</span>&nbsp;Credits</span></div>
+                <div class="text-end isloggedout w-100"><button class="btn btn-primary float-end isloggedout" type="button" data-bs-toggle="modal" data-bs-target="#modaLogin"><i class="far fa-user"></i>Login</button></div>
             </div>
         </div>
     </nav>
@@ -209,6 +210,22 @@
             </div>
         </div>
     </main>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modaLogin">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login / Register</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="https://api.corrently.io/v2.0/co2/login" method="get"><input class="form-control redirectfld" type="hidden" name="redirect"><input class="form-control sessionfld" type="hidden" name="session"><label class="form-label">Email (via Magic-Link)</label>
+                        <div class="input-group"><input class="form-control" type="email" id="email" required="" name="email"><button class="btn btn-primary" type="submit">Login</button></div>
+                    </form>
+                    <p style="margin-top: 25px;">or</p>
+                    <div class="text-center"><a id="loginlink" href="#"><img src="/assets/img/btn_google_signin_dark_normal_web.png"></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" role="dialog" tabindex="-1" id="outservice">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
