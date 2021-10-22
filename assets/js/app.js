@@ -23,7 +23,7 @@ $('document').ready(function() {
       } else {
         $('#price').html(data.priceEUR + " €");
       }
-      $('#offsetnow').click(function() {
+      $('#offsetnowDirect').click(function() {
           $.getJSON("https://api.corrently.io/v2.0/co2/compensate?co2="+$('#co2eq').val(),function(data) {
             location.href = data;
           })

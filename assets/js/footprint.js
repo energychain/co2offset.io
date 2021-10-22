@@ -22,7 +22,7 @@ $(document).ready(function() {
         }
         $('#offsetnow').click(function() {
             $.getJSON("https://api.corrently.io/v2.0/co2/compensate?co2="+required+creditsslug,function(data) {
-              location.href = data;
+              location.href = data;          
             })
         })
         $('#priceModal').modal("show");
