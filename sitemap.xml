@@ -1,54 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://co2offset.io/accounting.html</loc>
+        <loc>https://co2offset.io/app/addevent.html</loc>
     </url>
     <url>
-        <loc>https://co2offset.io/api.html</loc>
+        <loc>https://co2offset.io/app/api.html</loc>
     </url>
     <url>
-        <loc>https://co2offset.io/badge.html</loc>
+        <loc>https://co2offset.io/app/certificates.html</loc>
     </url>
     <url>
-        <loc>https://co2offset.io/footprint.html</loc>
+        <loc>https://co2offset.io/app/compensation.html</loc>
     </url>
     <url>
-        <loc>https://co2offset.io/host.html</loc>
+        <loc>https://co2offset.io/app/index.html</loc>
+    </url>
+    <url>
+        <loc>https://co2offset.io/app/inventory.html</loc>
+    </url>
+    <url>
+        <loc>https://co2offset.io/app/settings.html</loc>
+    </url>
+    <url>
+        <loc>https://co2offset.io/app/share.html</loc>
+    </url>
+    <url>
+        <loc>https://co2offset.io/app/upsert.html</loc>
+    </url>
+    <url>
+        <loc>https://co2offset.io/404.html</loc>
     </url>
     <url>
         <loc>https://co2offset.io/index.html</loc>
-    </url>
-    <url>
-        <loc>https://co2offset.io/jquery.html</loc>
-    </url>
-    <url>
-        <loc>https://co2offset.io/privacy.html</loc>
-    </url>
-    <url>
-        <loc>https://co2offset.io/redeem.html</loc>
-    </url>
-    <url>
-        <loc>https://co2offset.io/settlement.html</loc>
-    </url>
-    <url>
-        <loc>https://co2offset.io/strom_deutschland.html</loc>
-    </url>
-    <url>
-        <loc>https://co2offset.io/support.html</loc>
-    </url>
-    <url>
-        <loc>https://co2offset.io/taxonomy.html</loc>
-    </url>
-    <url>
-        <loc>https://co2offset.io/terms.html</loc>
-    </url>
-    <url>
-        <loc>https://co2offset.io/timer.html</loc>
-    </url>
-    <url>
-        <loc>https://co2offset.io/validation.html</loc>
-    </url>
-    <url>
-        <loc>https://co2offset.io/wallet.html</loc>
     </url>
 </urlset>
