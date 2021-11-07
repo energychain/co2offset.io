@@ -6,14 +6,9 @@ Carbon Dioxide Offset API
 
 ## Get Your Badge.
 
-## Installation
-
-### Development (with local Electron)
+## Installation for development
 ```
-npm start
-```
-
-### Build Release
-```
-npm run release
+git clone https://github.com/energychain/co2offset.io.git
+cd co2offset.io
+npm install
 ```
