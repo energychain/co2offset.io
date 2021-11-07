@@ -2,7 +2,7 @@
   "name": "co2offset.io",
   "productName": "CO2 Accounting",
   "description": "Greenhouse Gas Accounting - ISO14064",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "author": "STROMDAO GmbH <dev@stromdao.com>",
   "copyright": "© 2021 STROMDAO GmbH.",
@@ -34,8 +34,8 @@
     "ghg-protocol"
   ],
   "bin": {
-    "co2accounting": "node build/start.js",
-    "co2offset": "node build/start.js"
+    "co2accounting": "./build/start.js",
+    "co2offset": "./build/start.js"
   },
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
