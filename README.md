@@ -7,5 +7,16 @@ Carbon Dioxide Offset API
 ```
 [![CO2Offset](https://api.corrently.io/v2.0/ghgmanage/statusimg?host=yourlib&svg=1)](https://co2offset.io/badge.html?host=yourlib)
 ```
-
 Just replace `yourlib` with yours....
+
+## Usage
+
+### Development (with local Electron)
+```
+npm start
+```
+
+### Build Release
+```
+npm run release
+```
