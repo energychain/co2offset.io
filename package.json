@@ -36,6 +36,7 @@
     "co2accounting": "./build/start.js",
     "co2offset": "./build/start.js"
   },
+  "license": "Apache-2.0",
   "scripts": {
     "preunit": "webpack --config=build/webpack.unit.config.js --env=test",
     "unit": "electron-mocha temp/specs.js --renderer --color --require source-map-support/register",
@@ -43,7 +44,7 @@
     "e2e": "mocha temp/e2e.js --require source-map-support/register",
     "test": "npm run unit && npm run e2e",
     "start": "node build/start.js",
-    "release": "npm test && webpack --config=build/webpack.app.config.js --env=production && electron-builder"
+    "release": "npm test && npm publish && webpack --config=build/webpack.app.config.js --env=production && electron-builder"
   },
   "dependencies": {
     "co2accounting": "^1.0.23",

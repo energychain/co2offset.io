@@ -7,6 +7,9 @@ Carbon Dioxide Offset API
 
 ## Get Your Badge.
 
+![CO2 Accounting][./overview.png]
+
+
 ## Installation for development
 ```
 git clone https://github.com/energychain/co2offset.io.git
