@@ -7,7 +7,7 @@ Carbon Dioxide Offset API
 
 ## Get Your Badge.
 
-![CO2 Accounting][./overview.png]
+[![CO2 Accounting][./overview.png]]
 
 
 ## Installation for development
