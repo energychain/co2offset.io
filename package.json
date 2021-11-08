@@ -2,7 +2,7 @@
   "name": "co2offset",
   "productName": "CO2 Accounting",
   "description": "Greenhouse Gas Accounting - ISO14064",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "author": "STROMDAO GmbH <dev@stromdao.com>",
   "copyright": "© 2021 STROMDAO GmbH.",
   "homepage": "https://co2offset.io/",
@@ -21,7 +21,7 @@
     "directories": {
       "buildResources": "resources"
     },
-    "publish": null
+    "publish": true
   },
   "keywords": [
     "co2",

@@ -7,7 +7,7 @@ Carbon Dioxide Offset API
 
 ## Get Your Badge.
 
-[![CO2 Accounting][./overview.png]]
+![CO2Accounting](./overview.png)
 
 
 ## Installation for development
@@ -16,3 +16,28 @@ git clone https://github.com/energychain/co2offset.io.git
 cd co2offset.io
 npm install
 ```
+
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Please make sure to update tests as appropriate. Details on [contributing](./CONTRIBUTING.md).
+
+## Maintainer / Imprint
+
+<addr>
+STROMDAO GmbH  <br/>
+Gerhard Weiser Ring 29  <br/>
+69256 Mauer  <br/>
+Germany  <br/>
+  <br/>
++49 6226 968 009 0  <br/>
+  <br/>
+kontakt@stromdao.com  <br/>
+  <br/>
+Handelsregister: HRB 728691 (Amtsgericht Mannheim)
+</addr>
+
+Project Website: https://co2offset.io/
+
+## LICENSE
+[Apache-2.0](./LICENSE)
