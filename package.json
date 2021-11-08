@@ -21,7 +21,7 @@
     "directories": {
       "buildResources": "resources"
     },
-    "publish": true
+    "publish": null
   },
   "keywords": [
     "co2",
@@ -44,7 +44,7 @@
     "e2e": "mocha temp/e2e.js --require source-map-support/register",
     "test": "npm run unit && npm run e2e",
     "start": "node build/start.js",
-    "release": "npm test && npm publish && webpack --config=build/webpack.app.config.js --env=production && electron-builder && ./build.sh"
+    "release": "npm test && npm publish && webpack --config=build/webpack.app.config.js --env=production && ./build.sh"
   },
   "dependencies": {
     "co2accounting": "^1.0.23",
