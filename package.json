@@ -38,13 +38,13 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "preunit": "webpack --config=build/webpack.unit.config.js --env=test",
+    "preunit": "webpack --config=build/webpack.unit.config.js --env=production",
     "unit": "electron-mocha temp/specs.js --renderer --color --require source-map-support/register",
-    "pree2e": "webpack --config=build/webpack.app.config.js --env=test && webpack --config=build/webpack.e2e.config.js --env=test",
+    "pree2e": "webpack --config=build/webpack.app.config.js --env=production && webpack --config=build/webpack.e2e.config.js --env=production",
     "e2e": "mocha temp/e2e.js --require source-map-support/register",
     "test": "npm run unit && npm run e2e",
     "start": "node build/start.js",
-    "release": "npm test && npm publish && webpack --config=build/webpack.app.config.js --env=production && ./build.sh"
+    "release": "npm test && webpack --config=build/webpack.app.config.js --env=production && npx electron-builder && ./build.sh"
   },
   "dependencies": {
     "co2accounting": "^1.0.23",

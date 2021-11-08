@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const childProcess = require("child_process");
 const readline = require("readline");
 const electron = require("electron");
