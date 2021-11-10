@@ -67,7 +67,7 @@ app.on("ready", () => {
     })
   );
   mainWindow.removeMenu();
-
+  
   if (env.name === "development") {
     mainWindow.openDevTools();
   }
