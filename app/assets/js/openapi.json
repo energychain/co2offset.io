@@ -1,0 +1,493 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "version": "3.1.18",
+    "title": "co2offset.io",
+    "contact": {
+      "email": "dev@stromdao.com",
+      "url": "https://stromdao.de/kontakt"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "x-logo": {
+      "url": "https://corrently.de/assets/img/Corrently_1000x252.png"
+    },
+    "description": "*part of the [Corrently ecosystem](https://corrently.io)*\n# Introduction\nThe Corrently ecosystem gets maintained by [STROMDAO GmbH](https://www.stromdao.de/) to support green energy services for prosumers, grid operators, regulators, integrators or any other party with an emerging need of consensus driven management.\nAs the [energy product Corrently](https://www.corrently.de/) got first launched in Germany parts of this documentation provide simple translations for better understanding.\n## About this API \nThis API targets developers who want to build their own services based on CO2 compensation/offset, but who do not wantto implement clearing and settlement processes directly. Primary use case are carbon footprint tools, reports and analyzers to get an inexpensive way to compensate directly (from with the service).\n## Accounting \nAdditional functions are provided to build a greenhouse gas balancesheet allowing to monitor co2 emission and offset in realtime. It follows the consensus mechanism documented in [this whitepaper](https://nextcloud.stromdao.de/nextcloud/index.php/s/xkdkLracsfSRnwr) \n"
+  },
+  "tags": [
+    {
+      "name": "CO2-Offset",
+      "description": "VCS Verified CO2 Emission Reduction in accordance with the requirements of ISO 14064-1 (Gold Standard). Calculate and get certificates, validate existing certificates.\n"
+    },
+    {
+      "name": "GHG-Accounting",
+      "description": "Greenhouse Gas Accounting following the [GHG-Protocol](https://ghgprotocol.org/) allowing to realtime monitoring of emission, compensation and efforts. Keeps latest GHG-balance sheet as a service to implement data in tactical and strategical business operations.\n"
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api.corrently.io/v2.0"
+    }
+  ],
+  "paths": {
+    "/co2/compensate": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Direct checkout (buy) co2 compensation",
+        "operationId": "co2compensate",
+        "description": "At co2offset.io , compensations represent a purchase of carbon offsets or negative emissions by mass. Place compensation orders directly if you know the amount of carbon dioxide you would like to sequester. You might call the /price API endpoint prior to a checkout to get latest pricing information. This method returns a URL for direct checkout using Stripe. All CO2 offset prices are based on VCS Verified CO2 Emission Reduction In accordance with the requirements of ISO 14064-1. CO2 prices are actual market prices and may change every hour.\n",
+        "parameters": [
+          {
+            "name": "liter",
+            "in": "query",
+            "description": "Liter of fuel to compensate.",
+            "schema": {
+              "type": "number"
+            },
+            "example": "30"
+          },
+          {
+            "name": "co2",
+            "in": "query",
+            "description": "CO2 equivalence in gram to compensate",
+            "schema": {
+              "type": "number"
+            },
+            "example": "12345"
+          },
+          {
+            "name": "kwh",
+            "in": "query",
+            "description": "Kilo Watt hours of electricity to co2 offset.",
+            "schema": {
+              "type": "number"
+            },
+            "example": "30"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/co2compensate"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/co2/basket": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Checkout (buy) co2 compensation. Will create an immutable basket that might be altered using the optional intermediate parameter.",
+        "operationId": "co2checkout",
+        "description": "Basket for authenticated accounts (mass operations). On first call you get an intermediate in the responds that you might use to update (eq. add more co2 offset). However you will always receive a new intermediate.\n",
+        "parameters": [
+          {
+            "name": "liter",
+            "in": "query",
+            "description": "Liter of fuel to compensate.",
+            "schema": {
+              "type": "number"
+            },
+            "example": "30"
+          },
+          {
+            "name": "co2",
+            "in": "query",
+            "description": "CO2 equivalence in gram to compensate",
+            "schema": {
+              "type": "number"
+            },
+            "example": "12345"
+          },
+          {
+            "name": "kwh",
+            "in": "query",
+            "description": "Kilo Watt hours of electricity to co2 offset.",
+            "schema": {
+              "type": "number"
+            },
+            "example": "30"
+          },
+          {
+            "name": "intermediate",
+            "required": false,
+            "in": "query",
+            "description": "Optional intermediate certificate to update",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/co2basket"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/co2/price": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Retrieve co2 footprint and compensation prices for either fuel, electricity or directly per CO2e gram.",
+        "operationId": "co2price",
+        "description": "All CO2 offset prices are based on VCS Verified CO2 Emission Reduction In accordance with the requirements of ISO 14064-1. CO2 prices are actual market prices and may change every hour.\n",
+        "parameters": [
+          {
+            "name": "liter",
+            "in": "query",
+            "description": "Liter of fuel to compensate.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "30"
+          },
+          {
+            "name": "co2",
+            "in": "query",
+            "description": "CO2 equivalence in gram to compensate",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "12345"
+          },
+          {
+            "name": "kwh",
+            "in": "query",
+            "description": "Kilo Watt hours of electricity to co2 offset.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "30"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/co2price"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/co2/comparable": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Compare grams of CO2 with different use cases.",
+        "operationId": "co2compare",
+        "description": "Available results include:<ul><li>gallons of gasoline consumed</li><li>gallons of diesel consumed</li><li>passenger vehicles driven for one year</li><li>tanker trucks worth of gasoline</li><li>incandescent lamps switch to LEDs</li><li>homes powered for a year</li><li>urban tree seedlings grown for 10 years</li><li>railcars of coal burned</li><li>coal-fired power plants in one year</li></ul>",
+        "parameters": [
+          {
+            "name": "co2",
+            "in": "query",
+            "description": "CO2 equivalence gramms to compare with",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "12345"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/comperators"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/co2/findByOwner": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Retrieve list of certificates owned by provided Digital ID",
+        "operationId": "co2findByOwner",
+        "description": "Allows to get a list of all certificates associated to an owner. Part of the CO2 Offset Ledger API.\n",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "query",
+            "description": "Digital ID of an Owner.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x2B5672fEfF4F923104cdBDc59afAAb864E5C2179"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/co2certificate"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/co2/certificate": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Retrieve CO2 offset certrificate data and validates (Proof of Identity, Consensus check).",
+        "operationId": "co2certificate",
+        "description": "EU-GDPR complient retrieval of dataset associated to this certificate. <ul><li>Compensation Path</li><li>Digital Signature(s)</li><li>Public Meta Information</li><li>CO2 Offset source (Project)</li><li>Transaction Information</li></ul> Use this endpoint for onthe-fly online rendering of certific data.\n",
+        "parameters": [
+          {
+            "name": "compensation",
+            "in": "query",
+            "description": "Digital Identity of a certificate to validate.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "0x971032fdCD88E71A880b539DEc415D1e48441DAF"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/co2certificate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/co2/sources": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Latest list of co2 compensation (offset) sources.",
+        "operationId": "co2sources",
+        "description": "Valid and certified sources of co2 compensation.\n",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/ghgclearing/create": {
+      "get": {
+        "tags": [
+          "GHG-Accounting"
+        ],
+        "summary": "Create new accounting organzition",
+        "operationId": "ghgcreateclearing",
+        "description": "Creates a new organization/entity to build a greenhouse gas balance sheet for.\n",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/ghgoracle/create": {
+      "get": {
+        "tags": [
+          "GHG-Accounting"
+        ],
+        "summary": "Create new oracle service",
+        "operationId": "ghgoraclecreate",
+        "description": "Creates a new orgacle service like a meterpoint operation or manual protocol. \n",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/ghgclearing/settlements": {
+      "get": {
+        "tags": [
+          "GHG-Accounting"
+        ],
+        "summary": "List of all settlements availabe for a given clearing",
+        "operationId": "ghgclearingsettlements",
+        "description": "Full inner consensus chain that builds up a balance sheet for greenhouse gases. \n",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "co2certificate": {
+        "type": "object",
+        "properties": {
+          "compensation": {
+            "description": "Digital Identity of CO2 compensation certificate.",
+            "type": "string",
+            "example": "0x971032fdCD88E71A880b539DEc415D1e48441DAF"
+          },
+          "co2": {
+            "description": "Gram CO2eq covered by this certificate",
+            "type": "integer",
+            "example": "39715"
+          },
+          "co2requested": {
+            "description": "Requested CO2 to offset. Might be less than actual co2 covered by certficate due to minimum amounts.",
+            "type": "integer",
+            "example": "39715"
+          },
+          "signature": {
+            "description": "Digital Signature as generated during transfer of ownership.",
+            "type": "string"
+          },
+          "owner": {
+            "description": "Digital Identity of owner of this certificate",
+            "type": "string",
+            "example": "0x2B5672fEfF4F923104cdBDc59afAAb864E5C2179"
+          },
+          "tree": {
+            "description": "Digital Identity of actual tree in case type of compensation is planting a tree.",
+            "type": "string",
+            "example": "0x15b6F57D958A86afA4B3EB8C74949c3171A43B63"
+          },
+          "meta": {
+            "description": "Meta Information attached during transfer of ownership. Covers fields like original activity etc.. ",
+            "type": "object"
+          }
+        }
+      },
+      "co2compensate": {
+        "description": "Basket for interactive checkout and payment of CO2 offset for a co2 certificate.",
+        "type": "string",
+        "example": "https://checkout.stripe.com/pay/cs_live_a1kuMslQRjSlHnYF1BuKQSXbEl6BfduHOGG30dgavjRDy1fjUnC4UllAUd#fidkdWxOYHwnPyd1blppbHNgWndSa21yQmNOa3JoN2RIXHxUMDVWZ193aScpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYH"
+      },
+      "co2basket": {
+        "description": "Basket for interactive checkout and payment of CO2 offset for a co2 certificate.",
+        "type": "object",
+        "properties": {
+          "checkout": {
+            "description": "URL for interactive checkout and payment of CO2 offset for a co2 certificate.",
+            "type": "string",
+            "example": "https://checkout.stripe.com/pay/cs_live_a1kuMslQRjSlHnYF1BuKQSXbEl6BfduHOGG30dgavjRDy1fjUnC4UllAUd#fidkdWxOYHwnPyd1blppbHNgWndSa21yQmNOa3JoN2RIXHxUMDVWZ193aScpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+          },
+          "credit": {
+            "description": "CO2 credit of your account (if authenticated)",
+            "type": "integer",
+            "example": "39715"
+          },
+          "debit": {
+            "description": "CO2 debit of your account (if authenticated)",
+            "type": "string"
+          },
+          "intermediate": {
+            "description": "Temporary Certificate",
+            "type": "string",
+            "example": "0x2B5672fEfF4F923104cdBDc59afAAb864E5C2179"
+          }
+        }
+      },
+      "comperators": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Nature/Kind to compare with",
+            "type": "string",
+            "example": "propane"
+          },
+          "value": {
+            "description": "Quantity",
+            "type": "number",
+            "example": 15.37
+          },
+          "units": {
+            "description": "units of this nature/kind",
+            "type": "string",
+            "example": "cylinder"
+          },
+          "description": {
+            "description": "Quantity calculation description",
+            "type": "string",
+            "example": "per cylinder"
+          }
+        }
+      },
+      "co2price": {
+        "type": "object",
+        "properties": {
+          "priceCent": {
+            "description": "EUR Cent price of co2 offset certificate",
+            "type": "integer",
+            "example": 371
+          },
+          "priceEUR": {
+            "description": "EUR price of co2 offset certificate",
+            "type": "string",
+            "example": "3.71"
+          },
+          "reqCO2": {
+            "description": "Requested CO2 to offset",
+            "type": "number"
+          },
+          "getCO2": {
+            "description": "CO2 offset you receive. Might be more than requested, due to minimum requirements on the market.",
+            "type": "number"
+          },
+          "remainCO2": {
+            "description": "Remaining CO2 (getCO2-reqCO2)",
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

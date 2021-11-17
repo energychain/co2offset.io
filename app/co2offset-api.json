@@ -1,0 +1,188 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "version": "2.0.0",
+    "title": "Corrently.io",
+    "contact": {
+      "email": "dev@stromdao.com",
+      "url": "https://stromdao.de/kontakt"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "x-logo": {
+      "url": "https://corrently.de/assets/img/Corrently_1000x252.png"
+    },
+    "description": "*part of the [Corrently ecosystem](https://corrently.io)*\n# Introduction\nThe Corrently ecosystem gets maintained by [STROMDAO GmbH](https://www.stromdao.de/) to support green energy services for prosumers, grid operators, regulators, integrators or any other party with an emerging need of consensus driven management.\nAs the [energy product Corrently](https://www.corrently.de/) got first launched in Germany parts of this documentation provide simple translations for better understanding.\n[Released SKDs for Download](https://github.com/energychain/corrently-api/releases)\n"
+  },
+  "tags": [
+    {
+      "name": "CO2-Offset",
+      "description": "VCS Verified CO2 Emission Reduction in accordance with the requirements of ISO 14064-1 (Gold Standard). Calculate and get certificates, validate existing certificates.\n"
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api.corrently.io/v2.0"
+    }
+  ],
+  "paths": {
+    "/co2/compensate": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Checkout (buy) co2 compensation",
+        "operationId": "co2compensate",
+        "description": "You might call the /price API endpoint prior to a checkout to get latest pricing information. This method returns a URL for direct checkout using Stripe. All CO2 offset prices are based on VCS Verified CO2 Emission Reduction In accordance with the requirements of ISO 14064-1. CO2 prices are actual market prices and may change every hour.\n",
+        "parameters": [
+          {
+            "name": "liter",
+            "in": "query",
+            "description": "Liter of fuel to compensate.",
+            "schema": {
+              "type": "number"
+            },
+            "example": "30"
+          },
+          {
+            "name": "co2",
+            "in": "query",
+            "description": "CO2 equivalence in gram to compensate",
+            "schema": {
+              "type": "number"
+            },
+            "example": "12345"
+          },
+          {
+            "name": "kwh",
+            "in": "query",
+            "description": "Kilo Watt hours of electricity to co2 offset.",
+            "schema": {
+              "type": "number"
+            },
+            "example": "30"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/co2compensate"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/co2/price": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Retrieve co2 footprint and compensation prices for either fuel, electricity or directly per CO2e gram.",
+        "operationId": "co2price",
+        "description": "All CO2 offset prices are based on VCS Verified CO2 Emission Reduction In accordance with the requirements of ISO 14064-1. CO2 prices are actual market prices and may change every hour.\n",
+        "parameters": [
+          {
+            "name": "liter",
+            "in": "query",
+            "description": "Liter of fuel to compensate.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "30"
+          },
+          {
+            "name": "co2",
+            "in": "query",
+            "description": "CO2 equivalence in gram to compensate",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "12345"
+          },
+          {
+            "name": "kwh",
+            "in": "query",
+            "description": "Kilo Watt hours of electricity to co2 offset.",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "30"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/co2price"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/co2/sources": {
+      "get": {
+        "tags": [
+          "CO2-Offset"
+        ],
+        "summary": "Latest list of co2 compensation (offset) sources.",
+        "operationId": "co2sources",
+        "description": "Valid and certified sources of co2 compensation.\n",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "co2compensate": {
+        "description": "URL for interactive checkout and payment of CO2 offset for a co2 certificate.",
+        "type": "string",
+        "example": "https://checkout.stripe.com/pay/cs_live_a1kuMslQRjSlHnYF1BuKQSXbEl6BfduHOGG30dgavjRDy1fjUnC4UllAUd#fidkdWxOYHwnPyd1blppbHNgWndSa21yQmNOa3JoN2RIXHxUMDVWZ193aScpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl"
+      },
+      "co2price": {
+        "type": "object",
+        "properties": {
+          "priceCent": {
+            "description": "EUR Cent price of co2 offset certificate",
+            "type": "integer",
+            "example": 371
+          },
+          "priceEUR": {
+            "description": "EUR price of co2 offset certificate",
+            "type": "string",
+            "example": "3.71"
+          },
+          "reqCO2": {
+            "description": "Requested CO2 to offset",
+            "type": "number"
+          },
+          "getCO2": {
+            "description": "CO2 offset you receive. Might be more than requested, due to minimum requirements on the market.",
+            "type": "number"
+          },
+          "remainCO2": {
+            "description": "Remaining CO2 (getCO2-reqCO2)",
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}
